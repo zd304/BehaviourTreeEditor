@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="imgui_impl_dx11.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Third\imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Third\imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Third\imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Third\imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Third\imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Third\imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NodeEditor\Source\Editor.h">
+      <Filter>NodeEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NodeEditor\Source\Interop.h">
+      <Filter>NodeEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="EDNode.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="EDPin.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="EDLink.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entry.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_dx11.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Third\imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Third\imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Third\imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Third\imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NodeEditor\Source\Editor.cpp">
+      <Filter>NodeEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NodeEditor\Source\NodeEditor.cpp">
+      <Filter>NodeEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NodeEditor\Source\ax\Builders.cpp">
+      <Filter>NodeEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NodeEditor\Source\ax\Drawing.cpp">
+      <Filter>NodeEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NodeEditor\Source\ax\Widgets.cpp">
+      <Filter>NodeEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Third\DXSDK\src\dxerr.cpp">
+      <Filter>DX</Filter>
+    </ClCompile>
+    <ClCompile Include="Simple.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Example">
+      <UniqueIdentifier>{a7db2a1a-ca58-403a-b301-6be3ea89e688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{0fa08317-e10f-4568-beb3-7d20684f5037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NodeEditor">
+      <UniqueIdentifier>{f73ddb1d-0956-4e46-90d8-fbd4e6f37a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX">
+      <UniqueIdentifier>{335fd8b4-2378-4ed9-9c3d-676f16aeb47b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
