@@ -111,32 +111,6 @@ LRESULT WINAPI ImGui_WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
-static ImFont* ImGui_LoadFont(ImFontAtlas& atlas, const char* name, float size, const ImVec2& displayOffset = ImVec2(0, 0))
-{
-	char* windir = getenv("WINDIR");
-    if (!windir)
-        return nullptr;
-
-    static const ImWchar ranges[] =
-    {
-        0x0020, 0x00FF, // Basic Latin + Latin Supplement
-        0x0104, 0x017C, // Polish characters and more
-        0,
-    };
-
-    ImFontConfig config;
-    config.OversampleH = 4;
-    config.OversampleV = 4;
-    config.PixelSnapH = false;
-
-    auto path = std::string(windir) + "\\Fonts\\" + name;
-    auto font = atlas.AddFontFromFileTTF(path.c_str(), size, &config, ranges);
-    if (font)
-        font->DisplayOffset = displayOffset;
-
-    return font;
-}
-
 ImTextureID Application_LoadTexture(const char* path)
 {
     return ImGui_LoadTexture(path);
@@ -162,6 +136,9 @@ int Application_GetTextureHeight(ImTextureID texture)
     return ImGui_GetTextureHeight(texture);
 }
 
+static int width = 1024;
+static int height = 768;
+
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd)
 {
     const auto c_ClassName  = _T("Node Editor Class");
@@ -174,25 +151,27 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     const auto wc = WNDCLASSEX{ sizeof(WNDCLASSEX), CS_CLASSDC, ImGui_WinProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, LoadCursor(nullptr, IDC_ARROW), nullptr, nullptr, c_ClassName, nullptr };
     RegisterClassEx(&wc); AX_SCOPE_EXIT { UnregisterClass(c_ClassName, wc.hInstance) ; };
 
-    auto hwnd = CreateWindow(c_ClassName, c_WindowName, WS_OVERLAPPEDWINDOW, 1920 + 100, 100, 1440, 800, nullptr, nullptr, wc.hInstance, nullptr);
+    auto hwnd = CreateWindowA(c_ClassName, c_WindowName, WS_OVERLAPPEDWINDOW, 0, 100, width, height, nullptr, nullptr, wc.hInstance, nullptr);
 
     // Initialize Direct3D
     AX_SCOPE_EXIT{ CleanupDeviceD3D(); };
     if (CreateDeviceD3D(hwnd) < 0)
         return 1;
 
-    ImFontAtlas fontAtlas;
-    auto defaultFont = ImGui_LoadFont(fontAtlas, "segoeui.ttf", 22.0f);//16.0f * 96.0f / 72.0f);
-    fontAtlas.Build();
-    //ImGuiFreeType::BuildFontAtlas(&fontAtlas);
-
     // Setup ImGui binding
-    ImGui::CreateContext(&fontAtlas);
+	ImGui::CreateContext();
+
     AX_SCOPE_EXIT{ ImGui::DestroyContext(); };
     ImGuiIO& io = ImGui::GetIO();
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
     io.IniFilename = nullptr;
     io.LogFilename = nullptr;
+
+	char* windir = getenv("WINDIR");
+	if (!windir)
+		return 1;
+	auto path = std::string(windir) + "\\Fonts\\msyh.ttf";
+	io.Fonts->AddFontFromFileTTF(path.c_str(), 18.0f, NULL, io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
 
     // Setup ImGui binding
     ImGui_ImplDX11_Init(hwnd, g_pd3dDevice, g_pd3dDeviceContext);
@@ -234,7 +213,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
     frame();
 
-    ShowWindow(hwnd, SW_SHOWMAXIMIZED);
+    ShowWindow(hwnd, SW_SHOW);
     //ShowWindow(hwnd, SW_SHOW);
     UpdateWindow(hwnd);
 

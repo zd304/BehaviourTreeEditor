@@ -40,6 +40,27 @@
     <ClInclude Include="EDLink.h">
       <Filter>Example</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfo.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoSelector.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoEntry.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeGUI.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfos.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="FormUtility.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoSequence.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -81,6 +102,27 @@
     <ClCompile Include="Simple.cpp">
       <Filter>Example</Filter>
     </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfo.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoSelector.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoEntry.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeGUI.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="FormUtility.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoSequence.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Example">
@@ -94,6 +136,9 @@
     </Filter>
     <Filter Include="DX">
       <UniqueIdentifier>{335fd8b4-2378-4ed9-9c3d-676f16aeb47b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\NodeInfos">
+      <UniqueIdentifier>{2c8e3163-661d-4b7e-b1c5-33f46b7889f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

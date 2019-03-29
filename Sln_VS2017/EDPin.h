@@ -6,7 +6,7 @@
 
 namespace ed = ax::NodeEditor;
 
-struct EDNode;
+class EDNode;
 
 enum class PinKind
 {

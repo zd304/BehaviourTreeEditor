@@ -5,6 +5,8 @@
 #include <algorithm>
 #include "EDNode.h"
 #include "EDLink.h"
+#include "NodeGUI.h"
+#include "NodeInfos.h"
 
 namespace ed = ax::NodeEditor;
 
@@ -12,6 +14,7 @@ static ed::EditorContext* g_Context = nullptr;
 static std::vector<EDNode*>	g_Nodes;
 static std::vector<EDLink*>	g_Links;
 static float HeightDiff = 120.0f;
+static EDNode* EnterNode = NULL;
 
 static int s_NextId = 10000;
 static int GetNextId()
@@ -126,6 +129,18 @@ static EDLink* FindLink(ed::LinkId linkID)
 	return NULL;
 }
 
+static EDNode* FindNode(ed::NodeId nodeID)
+{
+	for (size_t i = 0; i < g_Nodes.size(); ++i)
+	{
+		EDNode* node = g_Nodes[i];
+		if (!node) continue;
+		if (node->id == nodeID)
+			return node;
+	}
+	return NULL;
+}
+
 static void MakeLink(ed::PinId startPinID, ed::PinId endPinID)
 {
 	EDPin* startPin = FindPin(startPinID);
@@ -152,11 +167,16 @@ static void MakeLink(ed::PinId startPinID, ed::PinId endPinID)
 		return;
 	if (endNode->parent == startNode)
 		return;
+	if (startNode->maxOutput <= startNode->curOutput)
+	{
+		return;
+	}
 	endNode->parent = startNode;
 	startNode->children.push_back(endNode);
 
 	EDLink* link = new EDLink(GetNextLinkId(), startPinID, endPinID);
 	g_Links.push_back(link);
+	++startNode->curOutput;
 }
 
 static void DelLink(ed::LinkId linkID)
@@ -190,27 +210,68 @@ static void DelLink(ed::LinkId linkID)
 	auto id = std::find_if(g_Links.begin(), g_Links.end(), [linkID](auto& link) { return link->id == linkID; });
 	if (id != g_Links.end())
 		g_Links.erase(id);
+	--startNode->curOutput;
 }
 
 void Application_Initialize()
 {
+	InitNodeTypeNames();
+	SetNodeFindFunc(FindNode);
+	SetCreateParentNodeFunc(CreateParentNode);
+	SetCreateChildNodeFunc(CreateChildNode);
+
 	s_NextId = 1;
 
     ed::Config config;
     config.SettingsFile = "Simple.json";
     g_Context = ed::CreateEditor(&config);
 
-	EDNode* parent = CreateParentNode("Sequence");
-	EDNode* child = CreateChildNode("Move");
+	EnterNode = new EDNode(GetNextNodeId(), "Enter");
+	g_Nodes.push_back(EnterNode);
 
-	//EDLink* link = new EDLink(GetNextId(), parent->outputPin->id, child->inputPin->id);
-	//g_Links.push_back(link);
+	EnterNode->outputPin.emplace_back(GetNextPinId(), "output");
+	EnterNode->maxOutput = 1;
+	EnterNode->nodeInfo = new NodeInfoEntry();
+
+	BuildNode(EnterNode);
 }
 
 void Application_Finalize()
 {
 	ClearGraph();
     ed::DestroyEditor(g_Context);
+}
+
+void LeftView()
+{
+	//ImGui::Scrollbar(ImGuiLayoutType_Horizontal);
+	
+	ImGui::BeginTabBar("ViewTabs");
+	if (ImGui::BeginTabItem(u8"总览"))
+	{
+		ImGui::EndTabItem();
+	}
+	
+	if (ImGui::BeginTabItem(u8"检视"))
+	{
+		OnInspector();
+		ImGui::EndTabItem();
+	}
+
+	if (ImGui::BeginTabItem(u8"变量"))
+	{
+		ImGui::EndTabItem();
+	}
+
+	if (ImGui::BeginTabItem(u8"行为"))
+	{
+		ImGui::Text("This is Create Behavior tab");
+		ImGui::EndTabItem();
+	}
+	
+	ImGui::EndTabBar();
+
+	//ImGui::Scrollbar(ImGuiLayoutType_Vertical);
 }
 
 void Application_Frame()
@@ -226,6 +287,12 @@ void Application_Frame()
     ImGui::Separator();
 
     ed::SetCurrentEditor(g_Context);
+
+	ImGui::BeginChild("##Selection", ImVec2(300.0f, 0));
+	LeftView();
+	ImGui::EndChild();
+	ImGui::SameLine();
+
     ed::Begin("My Editor", ImVec2(0.0, 0.0f));
 
 	for (size_t i = 0; i < g_Nodes.size(); ++i)
@@ -473,10 +540,14 @@ void Application_Frame()
 		ImVec2 newNodePostion = openPopupPosition;
 
 		EDNode* node = nullptr;
-		if (ImGui::MenuItem("Create Parent Node"))
-			node = CreateParentNode("NewParentNode");
-		if (ImGui::MenuItem("Create Child Node"))
-			node = CreateChildNode("NewParentNode");
+
+		for (auto it = nodeTypeNames.begin();
+			it != nodeTypeNames.end(); ++it)
+		{
+			std::string txt = u8"创建[" + it->second + u8"]";
+			if (ImGui::MenuItem(txt.c_str()))
+				node = CreateNode(it->first);
+		}
 
 		if (node)
 		{
@@ -484,7 +555,7 @@ void Application_Frame()
 
 			if (EDPin* startPin = newNodeLinkPin)
 			{
-				std::vector<EDPin>* pins = startPin->kind == PinKind::Input ? &node->inputPin : &node->outputPin;
+				std::vector<EDPin>* pins = startPin->kind == PinKind::Input ? &node->outputPin : &node->inputPin;
 
 				for (size_t i = 0; i < pins->size(); ++i)
 				{

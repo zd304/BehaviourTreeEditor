@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EDPin.h"
+#include "NodeInfo.h"
 
 namespace ed = ax::NodeEditor;
 
@@ -8,7 +9,7 @@ class EDNode
 {
 public:
 	EDNode(int nodeID, const char* szName)
-		: id(nodeID), name(szName)
+		: id(nodeID), name(szName), curOutput(0), maxOutput(INT_MAX), nodeInfo(NULL)
 	{
 
 	}
@@ -37,15 +38,21 @@ public:
 			if (!child) continue;
 			child->parent = NULL;
 		}
+
+		SAFE_DELETE(nodeInfo);
 	}
 public:
 	ed::NodeId id;
 	std::string name;
 	std::vector<EDPin> inputPin;
 	std::vector<EDPin> outputPin;
+
+	int curOutput;
+	int maxOutput;
 public:
 	EDNode* parent;
 	std::vector<EDNode*> children;
+	NodeInfo* nodeInfo;
 };
 
 static void ResetNodeTreePos(EDNode* node, float diffHeight)
