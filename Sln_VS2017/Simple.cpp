@@ -7,12 +7,14 @@
 #include "EDLink.h"
 #include "NodeGUI.h"
 #include "NodeInfos.h"
+#include "Variables.h"
 
 namespace ed = ax::NodeEditor;
 
 static ed::EditorContext* g_Context = nullptr;
 static std::vector<EDNode*>	g_Nodes;
 static std::vector<EDLink*>	g_Links;
+static std::vector<Variable*> g_Variables;
 static float HeightDiff = 120.0f;
 static EDNode* EnterNode = NULL;
 
@@ -260,6 +262,7 @@ void LeftView()
 
 	if (ImGui::BeginTabItem(u8"变量"))
 	{
+		OnVarialbleGUI(g_Variables);
 		ImGui::EndTabItem();
 	}
 

@@ -61,6 +61,12 @@
     <ClInclude Include="NodeInfoSequence.h">
       <Filter>Example\NodeInfos</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoParallel.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="Variables.h">
+      <Filter>Example</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -122,6 +128,12 @@
     </ClCompile>
     <ClCompile Include="NodeInfoSequence.cpp">
       <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoParallel.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="Variables.cpp">
+      <Filter>Example</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

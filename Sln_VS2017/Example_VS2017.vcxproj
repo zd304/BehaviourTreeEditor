@@ -141,9 +141,11 @@
     <ClInclude Include="NodeGUI.h" />
     <ClInclude Include="NodeInfo.h" />
     <ClInclude Include="NodeInfoEntry.h" />
+    <ClInclude Include="NodeInfoParallel.h" />
     <ClInclude Include="NodeInfos.h" />
     <ClInclude Include="NodeInfoSelector.h" />
     <ClInclude Include="NodeInfoSequence.h" />
+    <ClInclude Include="Variables.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\NodeEditor\Source\ax\Builders.cpp" />
@@ -163,9 +165,11 @@
     <ClCompile Include="NodeGUI.cpp" />
     <ClCompile Include="NodeInfo.cpp" />
     <ClCompile Include="NodeInfoEntry.cpp" />
+    <ClCompile Include="NodeInfoParallel.cpp" />
     <ClCompile Include="NodeInfoSelector.cpp" />
     <ClCompile Include="NodeInfoSequence.cpp" />
     <ClCompile Include="Simple.cpp" />
+    <ClCompile Include="Variables.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

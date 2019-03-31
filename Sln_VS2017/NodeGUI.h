@@ -2,6 +2,8 @@
 
 #include "Application.h"
 #include "NodeEditor.h"
+#include "Variables.h"
+#include <vector>
 
 class EDNode;
 typedef EDNode* (*FindNodeFunc)(ax::NodeEditor::NodeId nodeID);
@@ -14,3 +16,4 @@ void SetCreateChildNodeFunc(CreateNodeFunc func);
 EDNode* CreateNode(NodeType nodeType);
 
 void OnInspector();
+void OnVarialbleGUI(std::vector<Variable*>& vars);

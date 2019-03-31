@@ -29,6 +29,9 @@ enum AbortType
 
 extern std::map<NodeType, std::string> nodeTypeNames;
 
+std::string UTS(const std::string& str);
+std::string STU(const std::string& str);
+
 #define SAFE_DELETE(x) if (x) { delete x; x = NULL; }
 #define SAFE_DELETE_ARRAY(x) if (x) { delete [] x; x = NULL; }
 #define SAFE_RELEASE(x) if (x) { x->Release(); x = NULL; }

@@ -193,6 +193,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     {
         ImGui_ImplDX11_NewFrame();
 
+		//ImGui::ShowDemoWindow();
+
         ImGui::SetNextWindowPos(ImVec2(0, 0));
         ImGui::SetNextWindowSize(io.DisplaySize);
         ImGui::Begin("Content", nullptr,
