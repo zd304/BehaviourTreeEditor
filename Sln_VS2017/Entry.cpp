@@ -171,7 +171,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	if (!windir)
 		return 1;
 	auto path = std::string(windir) + "\\Fonts\\msyh.ttf";
-	io.Fonts->AddFontFromFileTTF(path.c_str(), 18.0f, NULL, io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
+	io.Fonts->AddFontFromFileTTF(path.c_str(), 18.0f, NULL, io.Fonts->GetGlyphRangesChineseFull());
 
     // Setup ImGui binding
     ImGui_ImplDX11_Init(hwnd, g_pd3dDevice, g_pd3dDeviceContext);

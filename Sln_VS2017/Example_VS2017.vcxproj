@@ -142,8 +142,10 @@
     <ClInclude Include="NodeInfo.h" />
     <ClInclude Include="NodeInfoEntry.h" />
     <ClInclude Include="NodeInfoParallel.h" />
+    <ClInclude Include="NodeInfoPatrolPath.h" />
     <ClInclude Include="NodeInfoPatrolRange.h" />
     <ClInclude Include="NodeInfos.h" />
+    <ClInclude Include="NodeInfoSearchTarget.h" />
     <ClInclude Include="NodeInfoSelector.h" />
     <ClInclude Include="NodeInfoSequence.h" />
     <ClInclude Include="Variables.h" />
@@ -167,7 +169,10 @@
     <ClCompile Include="NodeInfo.cpp" />
     <ClCompile Include="NodeInfoEntry.cpp" />
     <ClCompile Include="NodeInfoParallel.cpp" />
+    <ClCompile Include="NodeInfoPatrolPath.cpp" />
     <ClCompile Include="NodeInfoPatrolRange.cpp" />
+    <ClCompile Include="NodeInfos.cpp" />
+    <ClCompile Include="NodeInfoSearchTarget.cpp" />
     <ClCompile Include="NodeInfoSelector.cpp" />
     <ClCompile Include="NodeInfoSequence.cpp" />
     <ClCompile Include="Simple.cpp" />

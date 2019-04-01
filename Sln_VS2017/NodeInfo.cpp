@@ -1,5 +1,6 @@
 #include "NodeInfo.h"
 #include "FormUtility.h"
+#include "NodeInfos.h"
 
 NodeInfo::NodeInfo(NodeType type, const char* name)
 	: mType(type)
@@ -24,4 +25,8 @@ void NodeInfo::OnGUI()
 	FormUtility::FormLabelText(u8"½ÚµãÃû³Æ", mName.c_str());
 
 	FormUtility::FormEnd();
+
+	ImGui::Spacing();
+	ImGui::Separator();
+	ImGui::Spacing();
 }

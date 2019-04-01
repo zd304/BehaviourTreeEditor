@@ -1,23 +1,10 @@
 #include "NodeGUI.h"
 #include "EDNode.h"
 #include "FormUtility.h"
-#include "NodeInfos.h"
 #include "Variables.h"
 
 namespace ed = ax::NodeEditor;
 FindNodeFunc findNodeFunc = NULL;
-CreateNodeFunc createParentNodeFunc = NULL;
-CreateNodeFunc createChildNodeFunc = NULL;
-
-void SetCreateParentNodeFunc(CreateNodeFunc func)
-{
-	createParentNodeFunc = func;
-}
-
-void SetCreateChildNodeFunc(CreateNodeFunc func)
-{
-	createChildNodeFunc = func;
-}
 
 void SetNodeFindFunc(FindNodeFunc func)
 {
@@ -32,34 +19,8 @@ EDNode* CreateNode(NodeType nodeType)
 		return NULL;
 	}
 
-	EDNode* node = NULL;
-	switch (nodeType)
-	{
-	case NodeType::Selector:
-	{
-		node = createParentNodeFunc(it->second.c_str());
-		node->nodeInfo = new NodeInfoSelector();
-	}
-	break;
-	case NodeType::Sequence:
-	{
-		node = createParentNodeFunc(it->second.c_str());
-		node->nodeInfo = new NodeInfoSequence();
-	}
-	break;
-	case NodeType::Parallel:
-	{
-		node = createParentNodeFunc(it->second.c_str());
-		node->nodeInfo = new NodeInfoParallel();
-	}
-	break;
-	case NodeType::PatrolRange:
-	{
-		node = createChildNodeFunc(it->second.c_str());
-		node->nodeInfo = new NodeInfoPatrolRange();
-	}
-	break;
-	}
+	EDNode* node = CreateNode(nodeType, it->second.c_str());
+	
 	return node;
 }
 

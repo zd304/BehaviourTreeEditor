@@ -70,6 +70,12 @@
     <ClInclude Include="NodeInfoPatrolRange.h">
       <Filter>Example\NodeInfos</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoPatrolPath.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoSearchTarget.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -139,6 +145,15 @@
       <Filter>Example</Filter>
     </ClCompile>
     <ClCompile Include="NodeInfoPatrolRange.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoPatrolPath.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfos.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoSearchTarget.cpp">
       <Filter>Example\NodeInfos</Filter>
     </ClCompile>
   </ItemGroup>

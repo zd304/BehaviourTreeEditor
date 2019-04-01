@@ -5,21 +5,22 @@
 
 enum NodeType
 {
-	Entry			= 0,
+	Entry = 0,
 
-	Selector		= 1,
+	Selector = 1,
 	Sequence,
 	Parallel,
 	RandomSelector,
 	RandomSequence,
 
-	Repeat			= 101,
+	Repeat = 101,
 	Success,
 	Inverter,
 
-	MoveTo			= 2001,
-	PatrolRange		= 2002,
-	PatrolPath		= 2003,
+	MoveTo = 2001,
+	PatrolRange,
+	PatrolPath,
+	SearchTarget,
 };
 
 enum AbortType

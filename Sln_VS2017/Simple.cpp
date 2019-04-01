@@ -229,7 +229,7 @@ void Application_Initialize()
     config.SettingsFile = "Simple.json";
     g_Context = ed::CreateEditor(&config);
 
-	EnterNode = new EDNode(GetNextNodeId(), "Enter");
+	EnterNode = new EDNode(GetNextNodeId(), u8"开始");
 	g_Nodes.push_back(EnterNode);
 
 	EnterNode->outputPin.emplace_back(GetNextPinId(), "output");
@@ -545,12 +545,61 @@ void Application_Frame()
 
 		EDNode* node = nullptr;
 
-		for (auto it = nodeTypeNames.begin();
-			it != nodeTypeNames.end(); ++it)
+		if (ImGui::BeginMenu(u8"复合节点"))
 		{
-			std::string txt = u8"创建[" + it->second + u8"]";
-			if (ImGui::MenuItem(txt.c_str()))
-				node = CreateNode(it->first);
+			for (auto it = nodeTypeNames.begin();
+				it != nodeTypeNames.end(); ++it)
+			{
+				if ((int)it->first < 1 || (int)it->first > 100)
+					continue;
+				std::string txt = u8"创建[" + it->second + u8"]";
+			
+				if (ImGui::MenuItem(txt.c_str()))
+					node = CreateNode(it->first);
+			}
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu(u8"装饰节点"))
+		{
+			for (auto it = nodeTypeNames.begin();
+				it != nodeTypeNames.end(); ++it)
+			{
+				if ((int)it->first < 101 || (int)it->first > 1000)
+					continue;
+				std::string txt = u8"创建[" + it->second + u8"]";
+
+				if (ImGui::MenuItem(txt.c_str()))
+					node = CreateNode(it->first);
+			}
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu(u8"条件节点"))
+		{
+			for (auto it = nodeTypeNames.begin();
+				it != nodeTypeNames.end(); ++it)
+			{
+				if ((int)it->first < 1001 || (int)it->first > 2000)
+					continue;
+				std::string txt = u8"创建[" + it->second + u8"]";
+
+				if (ImGui::MenuItem(txt.c_str()))
+					node = CreateNode(it->first);
+			}
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu(u8"行为节点"))
+		{
+			for (auto it = nodeTypeNames.begin();
+				it != nodeTypeNames.end(); ++it)
+			{
+				if ((int)it->first < 2001)
+					continue;
+				std::string txt = u8"创建[" + it->second + u8"]";
+
+				if (ImGui::MenuItem(txt.c_str()))
+					node = CreateNode(it->first);
+			}
+			ImGui::EndMenu();
 		}
 
 		if (node)

@@ -29,9 +29,9 @@ bool Variable::OnVariableCombo(const char* label)
 		}
 	}
 	
-	if (FormUtility::FormComboButton(label, &selectIndex, comboTxt.c_str(), -1, u8"转到值"))
+	if (FormUtility::FormComboButton(label, &selectIndex, comboTxt.c_str(), -1, u8"转成值"))
 	{
-		isValue = true;		
+		isValue = true;
 	}
 	if (selectIndex >= 0 && selectIndex < lsComboTxt.size())
 	{

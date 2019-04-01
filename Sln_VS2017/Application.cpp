@@ -18,6 +18,8 @@ void InitNodeTypeNames()
 	nodeTypeNames[NodeType::Inverter] = u8"Äæ±ä½Úµã";
 
 	nodeTypeNames[NodeType::PatrolRange] = u8"·¶Î§Ñ²Âß";
+	nodeTypeNames[NodeType::PatrolPath] = u8"Â·¾¶Ñ²Âß";
+	nodeTypeNames[NodeType::SearchTarget] = u8"ËÑÑ°Ä¿±ê";
 }
 
 std::string UTS(const std::string& str)
