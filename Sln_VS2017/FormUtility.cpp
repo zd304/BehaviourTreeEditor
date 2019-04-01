@@ -205,6 +205,30 @@ namespace FormUtility
 		return rst;
 	}
 
+	bool FormComboButton(const char* label, int* current_item, const char* items_seperated_by_zeros, int pop_max_height_in_items, const char* btnName)
+	{
+		bool rst = true;
+
+		ImGui::Text(label);
+		ImGui::NextColumn();
+
+		char c[128];
+		memset(c, 0, 128);
+		sprintf_s(c, "#FCOMBOBTN%s", label);
+		ImGui::PushID(c);
+		rst = ImGui::Combo("", current_item, items_seperated_by_zeros, pop_max_height_in_items);
+		ImGui::PopID();
+
+		if (btnName != NULL)
+		{
+			ImGui::SameLine();
+			rst = ImGui::Button(btnName);
+		}
+		ImGui::NextColumn();
+
+		return rst;
+	}
+
 	bool FormCheckBox(const char* label, bool* check)
 	{
 		ImGui::Text(label);

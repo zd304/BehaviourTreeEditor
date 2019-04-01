@@ -18,6 +18,8 @@ enum NodeType
 	Inverter,
 
 	MoveTo			= 2001,
+	PatrolRange		= 2002,
+	PatrolPath		= 2003,
 };
 
 enum AbortType

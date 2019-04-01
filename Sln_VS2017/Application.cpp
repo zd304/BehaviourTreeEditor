@@ -16,6 +16,8 @@ void InitNodeTypeNames()
 	nodeTypeNames[NodeType::Repeat] = u8"重复节点";
 	nodeTypeNames[NodeType::Success] = u8"成功节点";
 	nodeTypeNames[NodeType::Inverter] = u8"逆变节点";
+
+	nodeTypeNames[NodeType::PatrolRange] = u8"范围巡逻";
 }
 
 std::string UTS(const std::string& str)

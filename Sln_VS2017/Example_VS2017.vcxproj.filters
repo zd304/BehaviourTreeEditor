@@ -67,6 +67,9 @@
     <ClInclude Include="Variables.h">
       <Filter>Example</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoPatrolRange.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="Variables.cpp">
       <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoPatrolRange.cpp">
+      <Filter>Example\NodeInfos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

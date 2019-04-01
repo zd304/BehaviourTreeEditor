@@ -14,7 +14,7 @@ namespace ed = ax::NodeEditor;
 static ed::EditorContext* g_Context = nullptr;
 static std::vector<EDNode*>	g_Nodes;
 static std::vector<EDLink*>	g_Links;
-static std::vector<Variable*> g_Variables;
+std::vector<Variable*> g_Variables;
 static float HeightDiff = 120.0f;
 static EDNode* EnterNode = NULL;
 
@@ -222,6 +222,7 @@ void Application_Initialize()
 	SetCreateParentNodeFunc(CreateParentNode);
 	SetCreateChildNodeFunc(CreateChildNode);
 
+	g_Variables.clear();
 	s_NextId = 1;
 
     ed::Config config;

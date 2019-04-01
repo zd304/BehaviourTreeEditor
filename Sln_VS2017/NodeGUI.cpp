@@ -53,6 +53,12 @@ EDNode* CreateNode(NodeType nodeType)
 		node->nodeInfo = new NodeInfoParallel();
 	}
 	break;
+	case NodeType::PatrolRange:
+	{
+		node = createChildNodeFunc(it->second.c_str());
+		node->nodeInfo = new NodeInfoPatrolRange();
+	}
+	break;
 	}
 	return node;
 }
@@ -170,7 +176,7 @@ void OnVarialbleGUI(std::vector<Variable*>& vars)
 		Variable* var = *it;
 		if (var == NULL)
 			continue;
-		if (!var->OnGUI())
+		if (!var->OnVariableGUI())
 		{
 			vars.erase(it);
 			break;

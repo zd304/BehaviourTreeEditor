@@ -24,6 +24,8 @@ namespace FormUtility
 
 	bool FormCheckBox(const char* label, bool* check);
 
+	bool FormComboButton(const char* label, int* current_item, const char* items_seperated_by_zeros, int pop_max_height_in_items = -1, const char* btnName = NULL);
+
 	bool FormCombo(const char* label, int* current_item, const char* items_seperated_by_zeros, int pop_max_height_in_items = -1);
 
 	bool FormInputText(const char* label, char* buf, size_t size);
