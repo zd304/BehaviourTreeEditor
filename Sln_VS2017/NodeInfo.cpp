@@ -2,6 +2,8 @@
 #include "FormUtility.h"
 #include "NodeInfos.h"
 
+std::map<NodeType, std::string> nodeTypeNames;
+
 NodeInfo::NodeInfo(NodeType type, const char* name)
 	: mType(type)
 {

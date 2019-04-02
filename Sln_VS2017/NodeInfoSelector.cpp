@@ -5,10 +5,8 @@
 namespace ed = ax::NodeEditor;
 
 NodeInfoSelector::NodeInfoSelector()
-	: NodeInfo(NodeType::Selector),
-	mAbortType(AbortType::None)
+	: NodeInfo(NodeType::Selector)
 {
-	mAbortTxt = u8"无\0自打断\0打断低优先级";
 }
 
 void NodeInfoSelector::OnGUI()
@@ -16,6 +14,5 @@ void NodeInfoSelector::OnGUI()
 	NodeInfo::OnGUI();
 
 	FormUtility::FormBegin("##NodeInfoSelector");
-	FormUtility::FormCombo(u8"打断类型", (int*)&mAbortType, mAbortTxt);
 	FormUtility::FormEnd();
 }

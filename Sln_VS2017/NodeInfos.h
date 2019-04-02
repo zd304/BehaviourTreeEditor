@@ -2,6 +2,7 @@
 
 #include "NodeInfoEntry.h"
 #include "NodeInfoSelector.h"
+#include "NodeInfoActiveSelector.h"
 #include "NodeInfoSequence.h"
 #include "NodeInfoParallel.h"
 

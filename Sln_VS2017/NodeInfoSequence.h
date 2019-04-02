@@ -8,8 +8,4 @@ public:
 	NodeInfoSequence();
 
 	void OnGUI();
-public:
-	AbortType mAbortType;
-private:
-	const char* mAbortTxt;
 };

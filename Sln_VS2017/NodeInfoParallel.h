@@ -2,6 +2,12 @@
 
 #include "NodeInfo.h"
 
+enum BTPolicy
+{
+	RequireOne, // 一个成功/失败
+	RequireAll, // 全部成功/失败
+};
+
 class NodeInfoParallel : public NodeInfo
 {
 public:
@@ -9,7 +15,6 @@ public:
 
 	void OnGUI();
 public:
-	AbortType mAbortType;
-private:
-	const char* mAbortTxt;
+	BTPolicy mSuccessPolicy;
+	BTPolicy mFailurePolicy;
 };

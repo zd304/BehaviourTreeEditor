@@ -40,9 +40,6 @@
     <ClInclude Include="EDLink.h">
       <Filter>Example</Filter>
     </ClInclude>
-    <ClInclude Include="NodeInfo.h">
-      <Filter>Example</Filter>
-    </ClInclude>
     <ClInclude Include="NodeInfoSelector.h">
       <Filter>Example\NodeInfos</Filter>
     </ClInclude>
@@ -74,6 +71,12 @@
       <Filter>Example\NodeInfos</Filter>
     </ClInclude>
     <ClInclude Include="NodeInfoSearchTarget.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfo.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoActiveSelector.h">
       <Filter>Example\NodeInfos</Filter>
     </ClInclude>
   </ItemGroup>
@@ -120,9 +123,6 @@
     <ClCompile Include="Application.cpp">
       <Filter>Example</Filter>
     </ClCompile>
-    <ClCompile Include="NodeInfo.cpp">
-      <Filter>Example</Filter>
-    </ClCompile>
     <ClCompile Include="NodeInfoSelector.cpp">
       <Filter>Example\NodeInfos</Filter>
     </ClCompile>
@@ -154,6 +154,12 @@
       <Filter>Example\NodeInfos</Filter>
     </ClCompile>
     <ClCompile Include="NodeInfoSearchTarget.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfo.cpp">
+      <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoActiveSelector.cpp">
       <Filter>Example\NodeInfos</Filter>
     </ClCompile>
   </ItemGroup>

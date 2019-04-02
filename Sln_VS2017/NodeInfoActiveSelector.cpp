@@ -1,15 +1,15 @@
-#include "NodeInfoSequence.h"
+#include "NodeInfoActiveSelector.h"
 #include "EDNode.h"
 #include "FormUtility.h"
 
 namespace ed = ax::NodeEditor;
 
-NodeInfoSequence::NodeInfoSequence()
-	: NodeInfo(NodeType::Sequence)
+NodeInfoActiveSelector::NodeInfoActiveSelector()
+	: NodeInfo(NodeType::ActiveSelector)
 {
 }
 
-void NodeInfoSequence::OnGUI()
+void NodeInfoActiveSelector::OnGUI()
 {
 	NodeInfo::OnGUI();
 
