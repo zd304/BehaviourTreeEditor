@@ -10,6 +10,7 @@ public:
 
 	void OnGUI();
 	cJSON* Save(cJSON* parentArray);
+	void Load(cJSON* self);
 public:
 	VariableFloat range;
 };

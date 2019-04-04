@@ -135,6 +135,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="cJSON.h" />
     <ClInclude Include="EDLink.h" />
+    <ClInclude Include="FileDialog.h" />
     <ClInclude Include="FormUtility.h" />
     <ClInclude Include="imgui_impl_dx11.h" />
     <ClInclude Include="EDNode.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="cJSON.c" />
     <ClCompile Include="EDNode.cpp" />
     <ClCompile Include="Entry.cpp" />
+    <ClCompile Include="FileDialog.cpp" />
     <ClCompile Include="FormUtility.cpp" />
     <ClCompile Include="imgui_impl_dx11.cpp" />
     <ClCompile Include="NodeGUI.cpp" />

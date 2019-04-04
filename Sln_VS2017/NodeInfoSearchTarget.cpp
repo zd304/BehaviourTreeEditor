@@ -35,3 +35,13 @@ cJSON* NodeInfoSearchTarget::Save(cJSON* parentArray)
 
 	return self;
 }
+
+void NodeInfoSearchTarget::Load(cJSON* self)
+{
+	NodeInfo::Load(self);
+
+	mSearchTargetType = (SearchTargetType)cJSON_GetObjectItem(self, "SearchTargetType")->valueint;
+	mSearchTargetCondition = (SearchTargetCondition)cJSON_GetObjectItem(self, "SearchTargetCondition")->valueint;
+	cJSON* jsonSearchDist = cJSON_GetObjectItem(self, "SearchDist");
+	mSearchDist.Load(jsonSearchDist);
+}

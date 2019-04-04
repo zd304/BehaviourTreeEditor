@@ -28,3 +28,11 @@ cJSON* NodeInfoPatrolRange::Save(cJSON* parentArray)
 
 	return self;
 }
+
+void NodeInfoPatrolRange::Load(cJSON* self)
+{
+	NodeInfo::Load(self);
+
+	cJSON* jsonRange = cJSON_GetObjectItem(self, "Range");
+	range.Load(jsonRange);
+}

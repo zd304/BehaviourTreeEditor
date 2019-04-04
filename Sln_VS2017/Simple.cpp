@@ -10,6 +10,8 @@
 #include "Variables.h"
 #include <iostream>
 #include <fstream>
+#include "imgui_impl_dx11.h"
+#include "FileDialog.h"
 
 namespace ed = ax::NodeEditor;
 
@@ -19,6 +21,9 @@ static std::vector<EDLink*>	g_Links;
 std::vector<Variable*> g_Variables;
 static float HeightDiff = 120.0f;
 static EDNode* EnterNode = NULL;
+
+static FileDialog g_LoadTree;
+static FileDialog g_SaveTree;
 
 static int s_NextId = 10000;
 static int GetNextId()
@@ -243,6 +248,24 @@ void Application_Initialize()
 	g_Nodes.push_back(EnterNode);
 
 	BuildNode(EnterNode);
+
+	Global::mDiskTexID = ImGui_LoadTexture("../Data/disk.png");
+	Global::mFolderTexID = ImGui_LoadTexture("../Data/folder.png");
+	Global::mFileTexID = ImGui_LoadTexture("../Data/file.png");
+
+	char szPath[MAX_PATH] = { 0 };
+	GetCurrentDirectory(MAX_PATH, szPath);
+	std::string sCurPath = szPath;
+	sCurPath = sCurPath.append("\\");
+
+	g_LoadTree.ext = "json";
+	g_LoadTree.dlgName = "打开行为树";
+	g_LoadTree.SetDefaultDirectory(sCurPath);
+
+	g_SaveTree.ext = "json";
+	g_SaveTree.dlgName = "保存行为树";
+	g_SaveTree.SetDefaultDirectory(sCurPath);
+	g_SaveTree.mUsage = eFileDialogUsage_SaveFile;
 }
 
 void Application_Finalize()
@@ -253,18 +276,19 @@ void Application_Finalize()
 
 void LeftView()
 {
-	//ImGui::Scrollbar(ImGuiLayoutType_Horizontal);
+	bool openFlag = false;
+	bool saveFlag = false;
 	
 	ImGui::BeginTabBar("ViewTabs");
 	if (ImGui::BeginTabItem(u8"总览"))
 	{
 		if (ImGui::Button(u8"保存"))
 		{
-			Save("G:/GitHub/BehaviourTreeEditor/s.json");
+			saveFlag = true;
 		}
 		if (ImGui::Button(u8"加载"))
 		{
-			Load("G:/GitHub/BehaviourTreeEditor/s.json");
+			openFlag = true;
 		}
 		ImGui::EndTabItem();
 	}
@@ -289,7 +313,33 @@ void LeftView()
 	
 	ImGui::EndTabBar();
 
-	//ImGui::Scrollbar(ImGuiLayoutType_Vertical);
+	if (openFlag)
+	{
+		g_LoadTree.Open();
+		openFlag = false;
+	}
+	if (saveFlag)
+	{
+		g_SaveTree.Open();
+		saveFlag = false;
+	}
+
+	if (g_LoadTree.DoModal())
+	{
+		std::string path = g_LoadTree.directory;
+		path += g_LoadTree.fileName;
+		printf("Load: %s\n", path.c_str());
+
+		Load(path.c_str());
+	}
+	if (g_SaveTree.DoModal())
+	{
+		std::string path = g_SaveTree.directory;
+		path += g_SaveTree.fileName;
+		printf("Save: %s\n", path.c_str());
+
+		Save(path.c_str());
+	}
 }
 
 void Application_Frame()

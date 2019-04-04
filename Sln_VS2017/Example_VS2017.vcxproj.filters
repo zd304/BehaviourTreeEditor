@@ -82,6 +82,9 @@
     <ClInclude Include="cJSON.h">
       <Filter>Example\cJson</Filter>
     </ClInclude>
+    <ClInclude Include="FileDialog.h">
+      <Filter>Example\FileDialog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -171,6 +174,9 @@
     <ClCompile Include="EDNode.cpp">
       <Filter>Example</Filter>
     </ClCompile>
+    <ClCompile Include="FileDialog.cpp">
+      <Filter>Example\FileDialog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Example">
@@ -190,6 +196,9 @@
     </Filter>
     <Filter Include="Example\cJson">
       <UniqueIdentifier>{755aeb6a-cae5-4057-b445-aab8983f0ba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\FileDialog">
+      <UniqueIdentifier>{68368bc8-275a-4f68-b31e-403538e78c88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
