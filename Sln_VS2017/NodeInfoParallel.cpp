@@ -35,3 +35,11 @@ cJSON* NodeInfoParallel::Save(cJSON* parentArray)
 
 	return self;
 }
+
+void NodeInfoParallel::Load(cJSON* self)
+{
+	NodeInfo::Load(self);
+
+	mSuccessPolicy = (BTPolicy)cJSON_GetObjectItem(self, "SuccessPolicy")->valueint;
+	mFailurePolicy = (BTPolicy)cJSON_GetObjectItem(self, "FailurePolicy")->valueint;
+}

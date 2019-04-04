@@ -33,6 +33,7 @@ public:
 	virtual bool OnVariableGUI() = 0;
 	virtual bool OnInspectorGUI(const char* label, void* ptr) = 0;
 	virtual cJSON* ToJson();
+	virtual void Load(cJSON* json);
 protected:
 	bool OnVariableCombo(const char* label);
 public:
@@ -51,6 +52,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	float value;
 };

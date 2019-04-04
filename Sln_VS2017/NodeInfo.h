@@ -34,6 +34,7 @@ public:
 	NodeInfo(NodeType type, const char* name = NULL);
 	virtual void OnGUI();
 	virtual cJSON* Save(cJSON* parentArray);
+	virtual void Load(cJSON* self);
 protected:
 	void SaveChildren(cJSON* self);
 public:

@@ -82,7 +82,7 @@ EDNode* CreateNode(NodeType nodeType, const char* name)
 	}
 	break;
 	}
-	if (node->nodeInfo)
+	if (node && node->nodeInfo)
 	{
 		node->nodeInfo->mNode = node;
 	}

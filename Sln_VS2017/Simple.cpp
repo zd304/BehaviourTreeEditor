@@ -45,6 +45,7 @@ static int GetNextPinId()
 }
 
 void Save(const char* path);
+void Load(const char* path);
 
 static EDNode* CreateParentNode(const char* name)
 {
@@ -71,6 +72,10 @@ static EDNode* CreateChildNode(const char* name)
 
 static void ClearGraph()
 {
+	s_NextId = 10000;
+	s_NextLinkID = 20000;
+	s_NexNodeID = 30000;
+	s_NexPinID = 40000;
 	for (size_t i = 0; i < g_Nodes.size(); ++i)
 	{
 		EDNode* node = g_Nodes[i];
@@ -233,13 +238,9 @@ void Application_Initialize()
     config.SettingsFile = "Simple.json";
     g_Context = ed::CreateEditor(&config);
 
-	EnterNode = new EDNode(GetNextNodeId(), u8"开始");
+	s_NexNodeID = 30000;
+	EnterNode = CreateNode(NodeType::Entry);
 	g_Nodes.push_back(EnterNode);
-
-	EnterNode->outputPin.emplace_back(GetNextPinId(), "output");
-	EnterNode->maxOutput = 1;
-	EnterNode->nodeInfo = new NodeInfoEntry();
-	EnterNode->nodeInfo->mNode = EnterNode;
 
 	BuildNode(EnterNode);
 }
@@ -260,6 +261,10 @@ void LeftView()
 		if (ImGui::Button(u8"保存"))
 		{
 			Save("G:/GitHub/BehaviourTreeEditor/s.json");
+		}
+		if (ImGui::Button(u8"加载"))
+		{
+			Load("G:/GitHub/BehaviourTreeEditor/s.json");
 		}
 		ImGui::EndTabItem();
 	}
@@ -657,4 +662,62 @@ void Save(const char* path)
 		file.close();
 	}
 	
+}
+
+EDNode* ParseToNode(cJSON* json)
+{
+	NodeType nodeType = (NodeType)cJSON_GetObjectItem(json, "Type")->valueint;
+
+	EDNode* node = CreateNode(nodeType);
+	if (nodeType == NodeType::Entry)
+	{
+		EnterNode = node;
+		g_Nodes.push_back(node);
+
+		BuildNode(EnterNode);
+	}
+
+	cJSON* pos = cJSON_GetObjectItem(json, "Pos");
+	float x = (float)cJSON_GetArrayItem(pos, 0)->valuedouble;
+	float y = (float)cJSON_GetArrayItem(pos, 1)->valuedouble;
+	ed::SetNodePosition(node->id, ImVec2(x, y));
+
+	node->nodeInfo->Load(json);
+
+	cJSON* children = cJSON_GetObjectItem(json, "Children");
+	if (children)
+	{
+		int count = cJSON_GetArraySize(children);
+		for (int i = 0; i < count; ++i)
+		{
+			cJSON* item = cJSON_GetArrayItem(children, i);
+			EDNode* child = ParseToNode(item);
+
+			MakeLink(node->outputPin[0].id, child->inputPin[0].id);
+		}
+	}
+	return node;
+}
+
+void Load(const char* path)
+{
+	std::string txt;
+	std::ifstream file(path);
+	if (file.is_open())
+	{
+		int length;
+		file.seekg(0, std::ios::end);
+		length = file.tellg();
+		file.seekg(0, std::ios::beg);
+		char* buffer = new char[length + 1];
+		memset(buffer, 0, length + 1);
+		file.read(buffer, length);
+		txt = buffer;
+		delete[] buffer;
+		file.close();
+	}
+
+	ClearGraph();
+	cJSON* root = cJSON_Parse(txt.c_str());
+	ParseToNode(root);
 }

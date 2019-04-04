@@ -31,3 +31,13 @@ cJSON* NodeInfoPatrolPath::Save(cJSON* parentArray)
 
 	return self;
 }
+
+void NodeInfoPatrolPath::Load(cJSON* self)
+{
+	NodeInfo::Load(self);
+
+	patrolType = (PatrolPathType)cJSON_GetObjectItem(self, "PatrolPathType")->valueint;
+
+	cJSON* jsonPathName = cJSON_GetObjectItem(self, "PathName");
+	pathName.Load(jsonPathName);
+}

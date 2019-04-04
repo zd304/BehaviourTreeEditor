@@ -51,6 +51,15 @@ cJSON* Variable::ToJson()
 	return var;
 }
 
+void Variable::Load(cJSON* json)
+{
+	name = cJSON_GetObjectItem(json, "Name")->valuestring;
+	type = (VariableType)cJSON_GetObjectItem(json, "Type")->valueint;
+	std::string b = cJSON_GetObjectItem(json, "IsValue")->valuestring;
+	isValue = (b == "true") ? true : false;
+	selectIndex = -1;
+}
+
 VariableFloat::VariableFloat()
 	: Variable(VariableType::Float)
 {
@@ -88,6 +97,11 @@ cJSON* VariableFloat::ToJson()
 	cJSON_AddNumberToObject(var, "Value", value);
 
 	return var;
+}
+
+void VariableFloat::Load(cJSON* json)
+{
+	value = (float)cJSON_GetObjectItem(json, "Value")->valuedouble;
 }
 
 VariableInt::VariableInt()
