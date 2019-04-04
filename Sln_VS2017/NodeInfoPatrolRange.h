@@ -9,6 +9,7 @@ public:
 	NodeInfoPatrolRange();
 
 	void OnGUI();
+	cJSON* Save(cJSON* parentArray);
 public:
 	VariableFloat range;
 };

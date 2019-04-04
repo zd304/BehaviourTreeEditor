@@ -23,3 +23,15 @@ void NodeInfoSearchTarget::OnGUI()
 	mSearchDist.OnInspectorGUI(u8"ËÑÑ°·¶Î§", NULL);
 	FormUtility::FormEnd();
 }
+
+cJSON* NodeInfoSearchTarget::Save(cJSON* parentArray)
+{
+	cJSON* self = NodeInfo::Save(parentArray);
+
+	cJSON_AddNumberToObject(self, "SearchTargetType", (int)mSearchTargetType);
+	cJSON_AddNumberToObject(self, "SearchTargetCondition", (int)mSearchTargetCondition);
+	cJSON* jsonSearchDist = mSearchDist.ToJson();
+	cJSON_AddItemToObject(self, "SearchDist", jsonSearchDist);
+
+	return self;
+}

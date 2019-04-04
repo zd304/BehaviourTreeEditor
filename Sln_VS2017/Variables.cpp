@@ -41,6 +41,16 @@ bool Variable::OnVariableCombo(const char* label)
 	return true;
 }
 
+cJSON* Variable::ToJson()
+{
+	cJSON* var = cJSON_CreateObject();
+	cJSON_AddStringToObject(var, "Name", name.c_str());
+	cJSON_AddNumberToObject(var, "Type", (int)type);
+	cJSON_AddBoolToObject(var, "IsValue", isValue);
+
+	return var;
+}
+
 VariableFloat::VariableFloat()
 	: Variable(VariableType::Float)
 {
@@ -70,6 +80,14 @@ bool VariableFloat::OnInspectorGUI(const char* label, void* ptr)
 		OnVariableCombo(label);
 	}
 	return true;
+}
+
+cJSON* VariableFloat::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", value);
+
+	return var;
 }
 
 VariableInt::VariableInt()
@@ -103,6 +121,14 @@ bool VariableInt::OnInspectorGUI(const char* label, void* ptr)
 	return true;
 }
 
+cJSON* VariableInt::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", value);
+
+	return var;
+}
+
 VariableBool::VariableBool()
 	: Variable(VariableType::Bool)
 {
@@ -132,6 +158,14 @@ bool VariableBool::OnInspectorGUI(const char* label, void* ptr)
 		OnVariableCombo(label);
 	}
 	return true;
+}
+
+cJSON* VariableBool::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddBoolToObject(var, "Value", value);
+
+	return var;
 }
 
 VariableString::VariableString()
@@ -165,6 +199,14 @@ bool VariableString::OnInspectorGUI(const char* label, void* ptr)
 	return true;
 }
 
+cJSON* VariableString::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddStringToObject(var, "Value", value);
+
+	return var;
+}
+
 VariableVector2::VariableVector2()
 	: Variable(VariableType::Vector2)
 {
@@ -196,6 +238,17 @@ bool VariableVector2::OnVariableGUI()
 	return true;
 }
 
+cJSON* VariableVector2::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON* v = cJSON_CreateArray();
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[0]));
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[1]));
+	cJSON_AddItemToObject(var, "Value", v);
+
+	return var;
+}
+
 VariableVector3::VariableVector3()
 	: Variable(VariableType::Vector3)
 {
@@ -225,6 +278,18 @@ bool VariableVector3::OnInspectorGUI(const char* label, void* ptr)
 		OnVariableCombo(label);
 	}
 	return true;
+}
+
+cJSON* VariableVector3::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON* v = cJSON_CreateArray();
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[0]));
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[1]));
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[2]));
+	cJSON_AddItemToObject(var, "Value", v);
+
+	return var;
 }
 
 VariableVector4::VariableVector4()
@@ -259,6 +324,19 @@ bool VariableVector4::OnInspectorGUI(const char* label, void* ptr)
 	return true;
 }
 
+cJSON* VariableVector4::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON* v = cJSON_CreateArray();
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[0]));
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[1]));
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[2]));
+	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[3]));
+	cJSON_AddItemToObject(var, "Value", v);
+
+	return var;
+}
+
 VariableCharactor::VariableCharactor()
 	: Variable(VariableType::Charactor)
 {
@@ -289,6 +367,14 @@ bool VariableCharactor::OnInspectorGUI(const char* label, void* ptr)
 		OnVariableCombo(label);
 	}
 	return true;
+}
+
+cJSON* VariableCharactor::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", gid);
+
+	return var;
 }
 
 VariablePlayer::VariablePlayer()
@@ -323,6 +409,14 @@ bool VariablePlayer::OnInspectorGUI(const char* label, void* ptr)
 	return true;
 }
 
+cJSON* VariablePlayer::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", gid);
+
+	return var;
+}
+
 VariableNpc::VariableNpc()
 	: Variable(VariableType::Npc)
 {
@@ -353,6 +447,14 @@ bool VariableNpc::OnInspectorGUI(const char* label, void* ptr)
 		OnVariableCombo(label);
 	}
 	return true;
+}
+
+cJSON* VariableNpc::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", gid);
+
+	return var;
 }
 
 VariableNeutralNpc::VariableNeutralNpc()
@@ -387,6 +489,14 @@ bool VariableNeutralNpc::OnInspectorGUI(const char* label, void* ptr)
 	return true;
 }
 
+cJSON* VariableNeutralNpc::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", gid);
+
+	return var;
+}
+
 VariableMonster::VariableMonster()
 	: Variable(VariableType::Monster)
 {
@@ -417,4 +527,12 @@ bool VariableMonster::OnInspectorGUI(const char* label, void* ptr)
 		OnVariableCombo(label);
 	}
 	return true;
+}
+
+cJSON* VariableMonster::ToJson()
+{
+	cJSON* var = Variable::ToJson();
+	cJSON_AddNumberToObject(var, "Value", gid);
+
+	return var;
 }

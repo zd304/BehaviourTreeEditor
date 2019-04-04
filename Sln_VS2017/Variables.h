@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "imgui.h"
+#include "cJSON.h"
 
 enum VariableType
 {
@@ -31,6 +32,7 @@ public:
 
 	virtual bool OnVariableGUI() = 0;
 	virtual bool OnInspectorGUI(const char* label, void* ptr) = 0;
+	virtual cJSON* ToJson();
 protected:
 	bool OnVariableCombo(const char* label);
 public:
@@ -48,6 +50,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	float value;
 };
@@ -59,6 +62,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	int value;
 };
@@ -70,6 +74,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	bool value;
 };
@@ -81,6 +86,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	static const int TXT_SIZE = 128;
 	char value[TXT_SIZE];
@@ -93,6 +99,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	float value[2];
 };
@@ -104,6 +111,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	float value[3];
 };
@@ -115,6 +123,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	float value[4];
 };
@@ -126,6 +135,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	int gid;
 };
@@ -137,6 +147,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	int gid;
 };
@@ -148,6 +159,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	int gid;
 };
@@ -159,6 +171,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	int gid;
 };
@@ -170,6 +183,7 @@ public:
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
+	cJSON* ToJson();
 public:
 	int gid;
 };

@@ -16,3 +16,12 @@ void NodeInfoSelector::OnGUI()
 	FormUtility::FormBegin("##NodeInfoSelector");
 	FormUtility::FormEnd();
 }
+
+cJSON* NodeInfoSelector::Save(cJSON* parentArray)
+{
+	cJSON* self = NodeInfo::Save(parentArray);
+
+	SaveChildren(self);
+
+	return self;
+}

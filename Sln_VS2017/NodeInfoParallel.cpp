@@ -23,3 +23,15 @@ void NodeInfoParallel::OnGUI()
 	FormUtility::FormCombo(u8"Ê§°Ü²ßÂÔ", (int*)&mFailurePolicy, failurePolicy);
 	FormUtility::FormEnd();
 }
+
+cJSON* NodeInfoParallel::Save(cJSON* parentArray)
+{
+	cJSON* self = NodeInfo::Save(parentArray);
+
+	cJSON_AddNumberToObject(self, "SuccessPolicy", (int)mSuccessPolicy);
+	cJSON_AddNumberToObject(self, "FailurePolicy", (int)mFailurePolicy);
+
+	SaveChildren(self);
+
+	return self;
+}

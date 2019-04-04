@@ -16,6 +16,7 @@ public:
 	NodeInfoPatrolPath();
 
 	void OnGUI();
+	cJSON* Save(cJSON* parentArray);
 public:
 	PatrolPathType patrolType;
 	VariableString pathName;

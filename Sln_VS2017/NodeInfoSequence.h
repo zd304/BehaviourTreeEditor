@@ -8,4 +8,5 @@ public:
 	NodeInfoSequence();
 
 	void OnGUI();
+	cJSON* Save(cJSON* parentArray);
 };

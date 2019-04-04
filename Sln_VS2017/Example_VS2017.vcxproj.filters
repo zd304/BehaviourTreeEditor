@@ -79,6 +79,9 @@
     <ClInclude Include="NodeInfoActiveSelector.h">
       <Filter>Example\NodeInfos</Filter>
     </ClInclude>
+    <ClInclude Include="cJSON.h">
+      <Filter>Example\cJson</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -162,6 +165,12 @@
     <ClCompile Include="NodeInfoActiveSelector.cpp">
       <Filter>Example\NodeInfos</Filter>
     </ClCompile>
+    <ClCompile Include="cJSON.c">
+      <Filter>Example\cJson</Filter>
+    </ClCompile>
+    <ClCompile Include="EDNode.cpp">
+      <Filter>Example</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Example">
@@ -178,6 +187,9 @@
     </Filter>
     <Filter Include="Example\NodeInfos">
       <UniqueIdentifier>{2c8e3163-661d-4b7e-b1c5-33f46b7889f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\cJson">
+      <UniqueIdentifier>{755aeb6a-cae5-4057-b445-aab8983f0ba6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

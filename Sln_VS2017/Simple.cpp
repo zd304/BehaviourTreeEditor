@@ -8,6 +8,8 @@
 #include "NodeGUI.h"
 #include "NodeInfos.h"
 #include "Variables.h"
+#include <iostream>
+#include <fstream>
 
 namespace ed = ax::NodeEditor;
 
@@ -41,6 +43,8 @@ static int GetNextPinId()
 {
 	return s_NexPinID++;
 }
+
+void Save(const char* path);
 
 static EDNode* CreateParentNode(const char* name)
 {
@@ -235,6 +239,7 @@ void Application_Initialize()
 	EnterNode->outputPin.emplace_back(GetNextPinId(), "output");
 	EnterNode->maxOutput = 1;
 	EnterNode->nodeInfo = new NodeInfoEntry();
+	EnterNode->nodeInfo->mNode = EnterNode;
 
 	BuildNode(EnterNode);
 }
@@ -252,6 +257,10 @@ void LeftView()
 	ImGui::BeginTabBar("ViewTabs");
 	if (ImGui::BeginTabItem(u8"总览"))
 	{
+		if (ImGui::Button(u8"保存"))
+		{
+			Save("G:/GitHub/BehaviourTreeEditor/s.json");
+		}
 		ImGui::EndTabItem();
 	}
 	
@@ -636,3 +645,16 @@ void Application_Frame()
     ed::SetCurrentEditor(nullptr);
 }
 
+void Save(const char* path)
+{
+	cJSON* root = EnterNode->nodeInfo->Save(NULL);
+	char* txt = cJSON_Print(root);
+
+	std::ofstream file(path);
+	if (file.is_open())
+	{
+		file << txt;
+		file.close();
+	}
+	
+}

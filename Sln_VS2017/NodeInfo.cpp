@@ -1,6 +1,7 @@
 #include "NodeInfo.h"
 #include "FormUtility.h"
 #include "NodeInfos.h"
+#include "EDNode.h"
 
 std::map<NodeType, std::string> nodeTypeNames;
 
@@ -31,4 +32,29 @@ void NodeInfo::OnGUI()
 	ImGui::Spacing();
 	ImGui::Separator();
 	ImGui::Spacing();
+}
+
+cJSON* NodeInfo::Save(cJSON* parentArray)
+{
+	cJSON* node = cJSON_CreateObject();
+	cJSON_AddNumberToObject(node, "Type", (int)mType);
+
+	if (parentArray)
+	{
+		cJSON_AddItemToArray(parentArray, node);
+	}
+
+	return node;
+}
+
+void NodeInfo::SaveChildren(cJSON* self)
+{
+	cJSON* children = cJSON_CreateArray();
+	cJSON_AddItemToObject(self, "Children", children);
+
+	for (size_t i = 0; i < mNode->children.size(); ++i)
+	{
+		EDNode* child = mNode->children[i];
+		child->nodeInfo->Save(children);
+	}
 }

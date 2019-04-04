@@ -133,6 +133,7 @@
     <ClInclude Include="..\Third\imgui\imstb_textedit.h" />
     <ClInclude Include="..\Third\imgui\imstb_truetype.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="cJSON.h" />
     <ClInclude Include="EDLink.h" />
     <ClInclude Include="FormUtility.h" />
     <ClInclude Include="imgui_impl_dx11.h" />
@@ -163,6 +164,8 @@
     <ClCompile Include="..\Third\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\Third\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="cJSON.c" />
+    <ClCompile Include="EDNode.cpp" />
     <ClCompile Include="Entry.cpp" />
     <ClCompile Include="FormUtility.cpp" />
     <ClCompile Include="imgui_impl_dx11.cpp" />

@@ -20,3 +20,14 @@ void NodeInfoPatrolPath::OnGUI()
 	pathName.OnInspectorGUI(u8"Ñ²ÂßÂ·ÏßÃû", NULL);
 	FormUtility::FormEnd();
 }
+
+cJSON* NodeInfoPatrolPath::Save(cJSON* parentArray)
+{
+	cJSON* self = NodeInfo::Save(parentArray);
+
+	cJSON_AddNumberToObject(self, "PatrolPathType", (int)patrolType);
+	cJSON* jsonPathName = pathName.ToJson();
+	cJSON_AddItemToObject(self, "PathName", jsonPathName);
+
+	return self;
+}

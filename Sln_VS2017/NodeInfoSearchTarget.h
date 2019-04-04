@@ -26,6 +26,7 @@ public:
 	NodeInfoSearchTarget();
 
 	void OnGUI();
+	cJSON* Save(cJSON* parentArray);
 public:
 	SearchTargetType mSearchTargetType;
 	SearchTargetCondition mSearchTargetCondition;

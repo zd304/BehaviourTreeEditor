@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Application.h"
+#include "cJSON.h"
 
 enum NodeType
 {
@@ -25,14 +26,20 @@ enum NodeType
 
 extern std::map<NodeType, std::string> nodeTypeNames;
 
+class EDNode;
+
 class NodeInfo
 {
 public:
 	NodeInfo(NodeType type, const char* name = NULL);
 	virtual void OnGUI();
+	virtual cJSON* Save(cJSON* parentArray);
+protected:
+	void SaveChildren(cJSON* self);
 public:
 	NodeType mType;
 	std::string mName;
+	EDNode* mNode;
 };
 
 void InitNodeTypeNames();

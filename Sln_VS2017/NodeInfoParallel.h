@@ -14,6 +14,7 @@ public:
 	NodeInfoParallel();
 
 	void OnGUI();
+	cJSON* Save(cJSON* parentArray);
 public:
 	BTPolicy mSuccessPolicy;
 	BTPolicy mFailurePolicy;

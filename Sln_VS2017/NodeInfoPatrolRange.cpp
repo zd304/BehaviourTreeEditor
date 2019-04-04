@@ -18,3 +18,13 @@ void NodeInfoPatrolRange::OnGUI()
 	range.OnInspectorGUI(u8"Ñ²Âß·¶Î§", NULL);
 	FormUtility::FormEnd();
 }
+
+cJSON* NodeInfoPatrolRange::Save(cJSON* parentArray)
+{
+	cJSON* self = NodeInfo::Save(parentArray);
+
+	cJSON* jsonRange = range.ToJson();
+	cJSON_AddItemToObject(self, "Range", jsonRange);
+
+	return self;
+}
