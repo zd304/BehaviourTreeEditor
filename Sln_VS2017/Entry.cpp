@@ -136,7 +136,7 @@ int Application_GetTextureHeight(ImTextureID texture)
     return ImGui_GetTextureHeight(texture);
 }
 
-static int width = 1024;
+static int width = 1366;
 static int height = 768;
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd)

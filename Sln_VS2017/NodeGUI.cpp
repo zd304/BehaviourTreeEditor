@@ -34,6 +34,75 @@ EDNode* CreateNode(NodeType nodeType)
 	return node;
 }
 
+Variable* CreateVariable(VariableType varType)
+{
+	Variable* var = NULL;
+	switch (varType)
+	{
+	case VariableType::Bool:
+	{
+		var = new VariableBool();
+	}
+	break;
+	case VariableType::Float:
+	{
+		var = new VariableFloat();
+	}
+	break;
+	case VariableType::Int:
+	{
+		var = new VariableInt();
+	}
+	break;
+	case VariableType::String:
+	{
+		var = new VariableString();
+	}
+	break;
+	case VariableType::Vector2:
+	{
+		var = new VariableVector2();
+	}
+	break;
+	case VariableType::Vector3:
+	{
+		var = new VariableVector3();
+	}
+	break;
+	case VariableType::Vector4:
+	{
+		var = new VariableVector4();
+	}
+	break;
+	case VariableType::Charactor:
+	{
+		var = new VariableCharactor();
+	}
+	break;
+	case VariableType::Npc:
+	{
+		var = new VariableNpc();
+	}
+	break;
+	case VariableType::NeutralNpc:
+	{
+		var = new VariableNeutralNpc();
+	}
+	break;
+	case VariableType::Player:
+	{
+		var = new VariablePlayer();
+	}
+	break;
+	case VariableType::Monster:
+	{
+		var = new VariableMonster();
+	}
+	break;
+	}
+	return var;
+}
+
 void OnInspector()
 {
 	std::vector<ed::NodeId> selectedNodes;
@@ -71,70 +140,7 @@ void OnVarialbleGUI(std::vector<Variable*>& vars)
 
 	if (ImGui::Button(u8"Ìí¼Ó±äÁ¿"))
 	{
-		Variable* var = NULL;
-		switch (type)
-		{
-		case VariableType::Bool:
-		{
-			var = new VariableBool();
-		}
-		break;
-		case VariableType::Float:
-		{
-			var = new VariableFloat();
-		}
-		break;
-		case VariableType::Int:
-		{
-			var = new VariableInt();
-		}
-		break;
-		case VariableType::String:
-		{
-			var = new VariableString();
-		}
-		break;
-		case VariableType::Vector2:
-		{
-			var = new VariableVector2();
-		}
-		break;
-		case VariableType::Vector3:
-		{
-			var = new VariableVector3();
-		}
-		break;
-		case VariableType::Vector4:
-		{
-			var = new VariableVector4();
-		}
-		break;
-		case VariableType::Charactor:
-		{
-			var = new VariableCharactor();
-		}
-		break;
-		case VariableType::Npc:
-		{
-			var = new VariableNpc();
-		}
-		break;
-		case VariableType::NeutralNpc:
-		{
-			var = new VariableNeutralNpc();
-		}
-		break;
-		case VariableType::Player:
-		{
-			var = new VariablePlayer();
-		}
-		break;
-		case VariableType::Monster:
-		{
-			var = new VariableMonster();
-		}
-		break;
-		}
+		Variable* var = CreateVariable(type);
 		var->name = variableName;
 		vars.push_back(var);
 	}

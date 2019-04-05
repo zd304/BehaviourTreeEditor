@@ -23,6 +23,11 @@ bool Variable::OnVariableCombo(const char* label)
 					comboTxt.push_back(var->name[j]);
 				}
 				comboTxt.push_back('\0');
+
+				if (var->name == name)
+				{
+					selectIndex = i;
+				}
 				
 				lsComboTxt.push_back(var->name);
 			}
@@ -55,8 +60,7 @@ void Variable::Load(cJSON* json)
 {
 	name = cJSON_GetObjectItem(json, "Name")->valuestring;
 	type = (VariableType)cJSON_GetObjectItem(json, "Type")->valueint;
-	std::string b = cJSON_GetObjectItem(json, "IsValue")->valuestring;
-	isValue = (b == "true") ? true : false;
+	isValue = (bool)cJSON_GetObjectItem(json, "IsValue")->valueint;
 	selectIndex = -1;
 }
 
@@ -101,6 +105,7 @@ cJSON* VariableFloat::ToJson()
 
 void VariableFloat::Load(cJSON* json)
 {
+	Variable::Load(json);
 	value = (float)cJSON_GetObjectItem(json, "Value")->valuedouble;
 }
 
@@ -143,6 +148,12 @@ cJSON* VariableInt::ToJson()
 	return var;
 }
 
+void VariableInt::Load(cJSON* json)
+{
+	Variable::Load(json);
+	value = cJSON_GetObjectItem(json, "Value")->valueint;
+}
+
 VariableBool::VariableBool()
 	: Variable(VariableType::Bool)
 {
@@ -182,6 +193,12 @@ cJSON* VariableBool::ToJson()
 	return var;
 }
 
+void VariableBool::Load(cJSON* json)
+{
+	Variable::Load(json);
+	value = (bool)cJSON_GetObjectItem(json, "Value")->valueint;
+}
+
 VariableString::VariableString()
 	: Variable(VariableType::String)
 {
@@ -219,6 +236,14 @@ cJSON* VariableString::ToJson()
 	cJSON_AddStringToObject(var, "Value", value);
 
 	return var;
+}
+
+void VariableString::Load(cJSON* json)
+{
+	Variable::Load(json);
+	std::string txt = cJSON_GetObjectItem(json, "Value")->valuestring;
+	memset(value, 0, TXT_SIZE);
+	memcpy(value, txt.c_str(), txt.length());
 }
 
 VariableVector2::VariableVector2()
@@ -263,6 +288,16 @@ cJSON* VariableVector2::ToJson()
 	return var;
 }
 
+void VariableVector2::Load(cJSON* json)
+{
+	Variable::Load(json);
+	cJSON* v = cJSON_GetObjectItem(json, "Value");
+	float x = (float)cJSON_GetArrayItem(v, 0)->valuedouble;
+	float y = (float)cJSON_GetArrayItem(v, 1)->valuedouble;
+	value[0] = x;
+	value[1] = y;
+}
+
 VariableVector3::VariableVector3()
 	: Variable(VariableType::Vector3)
 {
@@ -304,6 +339,18 @@ cJSON* VariableVector3::ToJson()
 	cJSON_AddItemToObject(var, "Value", v);
 
 	return var;
+}
+
+void VariableVector3::Load(cJSON* json)
+{
+	Variable::Load(json);
+	cJSON* v = cJSON_GetObjectItem(json, "Value");
+	float x = (float)cJSON_GetArrayItem(v, 0)->valuedouble;
+	float y = (float)cJSON_GetArrayItem(v, 1)->valuedouble;
+	float z = (float)cJSON_GetArrayItem(v, 2)->valuedouble;
+	value[0] = x;
+	value[1] = y;
+	value[2] = z;
 }
 
 VariableVector4::VariableVector4()
@@ -351,6 +398,20 @@ cJSON* VariableVector4::ToJson()
 	return var;
 }
 
+void VariableVector4::Load(cJSON* json)
+{
+	Variable::Load(json);
+	cJSON* v = cJSON_GetObjectItem(json, "Value");
+	float x = (float)cJSON_GetArrayItem(v, 0)->valuedouble;
+	float y = (float)cJSON_GetArrayItem(v, 1)->valuedouble;
+	float z = (float)cJSON_GetArrayItem(v, 2)->valuedouble;
+	float w = (float)cJSON_GetArrayItem(v, 3)->valuedouble;
+	value[0] = x;
+	value[1] = y;
+	value[2] = z;
+	value[3] = w;
+}
+
 VariableCharactor::VariableCharactor()
 	: Variable(VariableType::Charactor)
 {
@@ -389,6 +450,12 @@ cJSON* VariableCharactor::ToJson()
 	cJSON_AddNumberToObject(var, "Value", gid);
 
 	return var;
+}
+
+void VariableCharactor::Load(cJSON* json)
+{
+	Variable::Load(json);
+	gid = cJSON_GetObjectItem(json, "Value")->valueint;
 }
 
 VariablePlayer::VariablePlayer()
@@ -431,6 +498,12 @@ cJSON* VariablePlayer::ToJson()
 	return var;
 }
 
+void VariablePlayer::Load(cJSON* json)
+{
+	Variable::Load(json);
+	gid = cJSON_GetObjectItem(json, "Value")->valueint;
+}
+
 VariableNpc::VariableNpc()
 	: Variable(VariableType::Npc)
 {
@@ -469,6 +542,12 @@ cJSON* VariableNpc::ToJson()
 	cJSON_AddNumberToObject(var, "Value", gid);
 
 	return var;
+}
+
+void VariableNpc::Load(cJSON* json)
+{
+	Variable::Load(json);
+	gid = cJSON_GetObjectItem(json, "Value")->valueint;
 }
 
 VariableNeutralNpc::VariableNeutralNpc()
@@ -511,6 +590,12 @@ cJSON* VariableNeutralNpc::ToJson()
 	return var;
 }
 
+void VariableNeutralNpc::Load(cJSON* json)
+{
+	Variable::Load(json);
+	gid = cJSON_GetObjectItem(json, "Value")->valueint;
+}
+
 VariableMonster::VariableMonster()
 	: Variable(VariableType::Monster)
 {
@@ -549,4 +634,10 @@ cJSON* VariableMonster::ToJson()
 	cJSON_AddNumberToObject(var, "Value", gid);
 
 	return var;
+}
+
+void VariableMonster::Load(cJSON* json)
+{
+	Variable::Load(json);
+	gid = cJSON_GetObjectItem(json, "Value")->valueint;
 }

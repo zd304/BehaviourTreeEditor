@@ -65,6 +65,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	int value;
 };
@@ -77,6 +78,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	bool value;
 };
@@ -89,6 +91,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	static const int TXT_SIZE = 128;
 	char value[TXT_SIZE];
@@ -102,6 +105,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	float value[2];
 };
@@ -114,6 +118,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	float value[3];
 };
@@ -126,6 +131,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	float value[4];
 };
@@ -138,6 +144,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	int gid;
 };
@@ -150,6 +157,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	int gid;
 };
@@ -162,6 +170,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	int gid;
 };
@@ -174,6 +183,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	int gid;
 };
@@ -186,6 +196,7 @@ public:
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, void* ptr);
 	cJSON* ToJson();
+	void Load(cJSON* json);
 public:
 	int gid;
 };

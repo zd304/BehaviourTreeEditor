@@ -702,7 +702,20 @@ void Application_Frame()
 
 void Save(const char* path)
 {
-	cJSON* root = EnterNode->nodeInfo->Save(NULL);
+	cJSON* root = cJSON_CreateObject();
+	cJSON* vars = cJSON_CreateArray();
+	cJSON_AddItemToObject(root, "Vars", vars);
+
+	for (size_t i = 0; i < g_Variables.size(); ++i)
+	{
+		Variable* var = g_Variables[i];
+		cJSON* jsonVar = var->ToJson();
+		cJSON_AddItemToArray(vars, jsonVar);
+	}
+
+	cJSON* enterNode = EnterNode->nodeInfo->Save(NULL);
+	cJSON_AddItemToObject(root, "Nodes", enterNode);
+
 	char* txt = cJSON_Print(root);
 
 	std::ofstream file(path);
@@ -769,5 +782,19 @@ void Load(const char* path)
 
 	ClearGraph();
 	cJSON* root = cJSON_Parse(txt.c_str());
-	ParseToNode(root);
+	cJSON* vars = cJSON_GetObjectItem(root, "Vars");
+
+	int count = cJSON_GetArraySize(vars);
+	for (int i = 0; i < count; ++i)
+	{
+		cJSON* item = cJSON_GetArrayItem(vars, i);
+		VariableType varType = (VariableType)cJSON_GetObjectItem(item, "Type")->valueint;
+		Variable* var = CreateVariable(varType);
+		var->Load(item);
+		g_Variables.push_back(var);
+	}
+
+	cJSON* enterNode = cJSON_GetObjectItem(root, "Nodes");
+
+	ParseToNode(enterNode);
 }

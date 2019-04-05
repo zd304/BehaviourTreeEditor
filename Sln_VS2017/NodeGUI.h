@@ -12,6 +12,7 @@ typedef EDNode* (*FindNodeFunc)(ax::NodeEditor::NodeId nodeID);
 void SetNodeFindFunc(FindNodeFunc func);
 
 EDNode* CreateNode(NodeType nodeType);
+Variable* CreateVariable(VariableType varType);
 
 void OnInspector();
 void OnVarialbleGUI(std::vector<Variable*>& vars);
