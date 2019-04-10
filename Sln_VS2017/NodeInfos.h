@@ -12,8 +12,8 @@
 
 class EDNode;
 
-typedef EDNode* (*CreateNodeFunc)(const char* name);
-
 void SetCreateParentNodeFunc(CreateNodeFunc func);
-void SetCreateChildNodeFunc(CreateNodeFunc func);
+void SetCreateLeafNodeFunc(CreateNodeFunc func);
+void SetCreateRootNodeFunc(CreateNodeFunc func);
+
 EDNode* CreateNode(NodeType nodeType, const char* name);

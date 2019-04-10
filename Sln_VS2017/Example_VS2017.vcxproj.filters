@@ -85,6 +85,9 @@
     <ClInclude Include="FileDialog.h">
       <Filter>Example\FileDialog</Filter>
     </ClInclude>
+    <ClInclude Include="NodeFactory.h">
+      <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -176,6 +179,9 @@
     </ClCompile>
     <ClCompile Include="FileDialog.cpp">
       <Filter>Example\FileDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeFactory.cpp">
+      <Filter>Example\NodeInfos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

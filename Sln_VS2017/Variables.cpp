@@ -13,12 +13,12 @@ bool Variable::OnVariableCombo(const char* label)
 	std::vector<std::string> lsComboTxt;
 	if (g_Variables.size() > 0)
 	{
-		for (int i = 0; i < g_Variables.size(); ++i)
+		for (size_t i = 0; i < g_Variables.size(); ++i)
 		{
 			Variable* var = g_Variables[i];
 			if (var->type == type)
 			{
-				for (int j = 0; j < var->name.length(); ++j)
+				for (size_t j = 0; j < var->name.length(); ++j)
 				{
 					comboTxt.push_back(var->name[j]);
 				}
@@ -38,7 +38,7 @@ bool Variable::OnVariableCombo(const char* label)
 	{
 		isValue = true;
 	}
-	if (selectIndex >= 0 && selectIndex < lsComboTxt.size())
+	if (selectIndex >= 0 && (size_t)selectIndex < lsComboTxt.size())
 	{
 		name = lsComboTxt[selectIndex];
 	}

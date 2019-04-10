@@ -140,6 +140,7 @@
     <ClInclude Include="imgui_impl_dx11.h" />
     <ClInclude Include="EDNode.h" />
     <ClInclude Include="EDPin.h" />
+    <ClInclude Include="NodeFactory.h" />
     <ClInclude Include="NodeGUI.h" />
     <ClInclude Include="NodeInfo.h" />
     <ClInclude Include="NodeInfoActiveSelector.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="FileDialog.cpp" />
     <ClCompile Include="FormUtility.cpp" />
     <ClCompile Include="imgui_impl_dx11.cpp" />
+    <ClCompile Include="NodeFactory.cpp" />
     <ClCompile Include="NodeGUI.cpp" />
     <ClCompile Include="NodeInfo.cpp" />
     <ClCompile Include="NodeInfoActiveSelector.cpp" />

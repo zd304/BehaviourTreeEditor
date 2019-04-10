@@ -3,8 +3,6 @@
 #include "NodeInfos.h"
 #include "EDNode.h"
 
-std::map<NodeType, std::string> nodeTypeNames;
-
 NodeInfo::NodeInfo(NodeType type, const char* name)
 	: mType(type)
 {

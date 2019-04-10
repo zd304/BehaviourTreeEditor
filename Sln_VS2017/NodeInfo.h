@@ -2,31 +2,7 @@
 
 #include "Application.h"
 #include "cJSON.h"
-
-enum NodeType
-{
-	Entry = 0,
-
-	Selector = 1,
-	ActiveSelector,
-	Sequence,
-	Parallel,
-	RandomSelector,
-	RandomSequence,
-
-	Repeat = 101,
-	Success,
-	Inverter,
-
-	MoveTo = 2001,
-	PatrolRange,
-	PatrolPath,
-	SearchTarget,
-};
-
-extern std::map<NodeType, std::string> nodeTypeNames;
-
-class EDNode;
+#include "NodeFactory.h"
 
 class NodeInfo
 {
@@ -42,5 +18,3 @@ public:
 	std::string mName;
 	EDNode* mNode;
 };
-
-void InitNodeTypeNames();

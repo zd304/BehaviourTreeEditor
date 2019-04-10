@@ -52,6 +52,17 @@ static int GetNextPinId()
 void Save(const char* path);
 void Load(const char* path);
 
+static EDNode* CreateRootNode(const char* name)
+{
+	EDNode* node = new EDNode(GetNextNodeId(), name);
+	g_Nodes.push_back(node);
+
+	node->outputPin.emplace_back(GetNextPinId(), "output");
+
+	BuildNode(node);
+	return node;
+}
+
 static EDNode* CreateParentNode(const char* name)
 {
 	EDNode* node = new EDNode(GetNextNodeId(), name);
@@ -64,7 +75,7 @@ static EDNode* CreateParentNode(const char* name)
 	return node;
 }
 
-static EDNode* CreateChildNode(const char* name)
+static EDNode* CreateLeafNode(const char* name)
 {
 	EDNode* node = new EDNode(GetNextNodeId(), name);
 	g_Nodes.push_back(node);
@@ -231,10 +242,12 @@ static void DelLink(ed::LinkId linkID)
 
 void Application_Initialize()
 {
-	InitNodeTypeNames();
+	InitCreateNodeInfo();
 	SetNodeFindFunc(FindNode);
+
+	SetCreateRootNodeFunc(CreateRootNode);
 	SetCreateParentNodeFunc(CreateParentNode);
-	SetCreateChildNodeFunc(CreateChildNode);
+	SetCreateLeafNodeFunc(CreateLeafNode);
 
 	g_Variables.clear();
 	s_NextId = 1;
@@ -245,9 +258,6 @@ void Application_Initialize()
 
 	s_NexNodeID = 30000;
 	EnterNode = CreateNode(NodeType::Entry);
-	g_Nodes.push_back(EnterNode);
-
-	BuildNode(EnterNode);
 
 	Global::mDiskTexID = ImGui_LoadTexture("../Data/disk.png");
 	Global::mFolderTexID = ImGui_LoadTexture("../Data/folder.png");
@@ -732,13 +742,6 @@ EDNode* ParseToNode(cJSON* json)
 	NodeType nodeType = (NodeType)cJSON_GetObjectItem(json, "Type")->valueint;
 
 	EDNode* node = CreateNode(nodeType);
-	if (nodeType == NodeType::Entry)
-	{
-		EnterNode = node;
-		g_Nodes.push_back(node);
-
-		BuildNode(EnterNode);
-	}
 
 	cJSON* pos = cJSON_GetObjectItem(json, "Pos");
 	float x = (float)cJSON_GetArrayItem(pos, 0)->valuedouble;
@@ -768,9 +771,9 @@ void Load(const char* path)
 	std::ifstream file(path);
 	if (file.is_open())
 	{
-		int length;
+		unsigned long length;
 		file.seekg(0, std::ios::end);
-		length = file.tellg();
+		length = (unsigned long)file.tellg();
 		file.seekg(0, std::ios::beg);
 		char* buffer = new char[length + 1];
 		memset(buffer, 0, length + 1);

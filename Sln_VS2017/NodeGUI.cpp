@@ -20,16 +20,6 @@ EDNode* CreateNode(NodeType nodeType)
 	}
 
 	EDNode* node = CreateNode(nodeType, it->second.c_str());
-
-	if (nodeType == NodeType::Entry)
-	{
-		node = new EDNode(2999, u8"¿ªÊ¼");
-
-		node->outputPin.emplace_back(3999, "output");
-		node->maxOutput = 1;
-		node->nodeInfo = new NodeInfoEntry();
-		node->nodeInfo->mNode = node;
-	}
 	
 	return node;
 }
