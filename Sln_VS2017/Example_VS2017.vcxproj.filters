@@ -40,12 +40,6 @@
     <ClInclude Include="EDLink.h">
       <Filter>Example</Filter>
     </ClInclude>
-    <ClInclude Include="NodeInfoSelector.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfoEntry.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
     <ClInclude Include="NodeGUI.h">
       <Filter>Example</Filter>
     </ClInclude>
@@ -55,29 +49,8 @@
     <ClInclude Include="FormUtility.h">
       <Filter>Example</Filter>
     </ClInclude>
-    <ClInclude Include="NodeInfoSequence.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfoParallel.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
     <ClInclude Include="Variables.h">
       <Filter>Example</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfoPatrolRange.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfoPatrolPath.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfoSearchTarget.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfo.h">
-      <Filter>Example\NodeInfos</Filter>
-    </ClInclude>
-    <ClInclude Include="NodeInfoActiveSelector.h">
-      <Filter>Example\NodeInfos</Filter>
     </ClInclude>
     <ClInclude Include="cJSON.h">
       <Filter>Example\cJson</Filter>
@@ -87,6 +60,42 @@
     </ClInclude>
     <ClInclude Include="NodeFactory.h">
       <Filter>Example\NodeInfos</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoParallel.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoActiveSelector.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoSelector.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoSequence.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoSearchTarget.h">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoPatrolRange.h">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoPatrolPath.h">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoEntry.h">
+      <Filter>Example\NodeInfos\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfo.h">
+      <Filter>Example\NodeInfos\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoCondition.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoHaveTarget.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoIsUsingSkill.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -132,43 +141,16 @@
     <ClCompile Include="Application.cpp">
       <Filter>Example</Filter>
     </ClCompile>
-    <ClCompile Include="NodeInfoSelector.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeInfoEntry.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
     <ClCompile Include="NodeGUI.cpp">
       <Filter>Example</Filter>
     </ClCompile>
     <ClCompile Include="FormUtility.cpp">
       <Filter>Example</Filter>
     </ClCompile>
-    <ClCompile Include="NodeInfoSequence.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeInfoParallel.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
     <ClCompile Include="Variables.cpp">
       <Filter>Example</Filter>
     </ClCompile>
-    <ClCompile Include="NodeInfoPatrolRange.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeInfoPatrolPath.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
     <ClCompile Include="NodeInfos.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeInfoSearchTarget.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeInfo.cpp">
-      <Filter>Example\NodeInfos</Filter>
-    </ClCompile>
-    <ClCompile Include="NodeInfoActiveSelector.cpp">
       <Filter>Example\NodeInfos</Filter>
     </ClCompile>
     <ClCompile Include="cJSON.c">
@@ -182,6 +164,42 @@
     </ClCompile>
     <ClCompile Include="NodeFactory.cpp">
       <Filter>Example\NodeInfos</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoParallel.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoActiveSelector.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoSelector.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoSequence.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoSearchTarget.cpp">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoPatrolRange.cpp">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoPatrolPath.cpp">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoEntry.cpp">
+      <Filter>Example\NodeInfos\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfo.cpp">
+      <Filter>Example\NodeInfos\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoCondition.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoHaveTarget.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoIsUsingSkill.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +223,18 @@
     </Filter>
     <Filter Include="Example\FileDialog">
       <UniqueIdentifier>{68368bc8-275a-4f68-b31e-403538e78c88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\NodeInfos\Composite">
+      <UniqueIdentifier>{7173e85c-19a7-43ff-80b0-f91d87db58c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\NodeInfos\Action">
+      <UniqueIdentifier>{9effe264-6df0-4c8a-8925-384c79fe7b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\NodeInfos\Condition">
+      <UniqueIdentifier>{c341347e-ea3d-4385-aaf6-526b209535d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\NodeInfos\Common">
+      <UniqueIdentifier>{0c1e5400-9e68-4c5f-b0c4-e356f76afc1d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

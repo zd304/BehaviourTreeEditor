@@ -22,7 +22,7 @@
 		return node;\
 	}
 
-#define AddCreateNodeFunc(nodeType, className, name, childCount) createEDNodeFunc[nodeType] = Create##className;\
+#define RegisterNode(nodeType, className, name, childCount) createEDNodeFunc[nodeType] = Create##className;\
 	nodeTypeNames[nodeType] = u8###name;\
 	nodeChildCounts[nodeType] = childCount;
 
@@ -39,6 +39,8 @@ DefCreateNodeFunc(NodeInfoSequence)
 DefCreateNodeFunc(NodeInfoParallel)
 // 修饰节点;
 // 条件节点;
+DefCreateNodeFunc(NodeInfoHaveTarget)
+DefCreateNodeFunc(NodeInfoIsUsingSkill)
 // 行为节点;
 DefCreateNodeFunc(NodeInfoPatrolRange)
 DefCreateNodeFunc(NodeInfoPatrolPath)
@@ -46,16 +48,19 @@ DefCreateNodeFunc(NodeInfoSearchTarget)
 
 void InitCreateNodeInfo()
 {
-	AddCreateNodeFunc(NodeType::Entry,				NodeInfoSelector,			开始,						-1);
+	RegisterNode(NodeType::Entry,				NodeInfoSelector,			开始,						-1);
 
-	AddCreateNodeFunc(NodeType::Selector,			NodeInfoSelector,			选择节点,					INT_MAX);
-	AddCreateNodeFunc(NodeType::ActiveSelector,		NodeInfoActiveSelector,		主动选择节点,				INT_MAX);
-	AddCreateNodeFunc(NodeType::Sequence,			NodeInfoSequence,			顺序节点,					INT_MAX);
-	AddCreateNodeFunc(NodeType::Parallel,			NodeInfoParallel,			并行节点,					INT_MAX);
+	RegisterNode(NodeType::Selector,			NodeInfoSelector,			选择节点,					INT_MAX);
+	RegisterNode(NodeType::ActiveSelector,		NodeInfoActiveSelector,		主动选择节点,				INT_MAX);
+	RegisterNode(NodeType::Sequence,			NodeInfoSequence,			顺序节点,					INT_MAX);
+	RegisterNode(NodeType::Parallel,			NodeInfoParallel,			并行节点,					INT_MAX);
 
-	AddCreateNodeFunc(NodeType::PatrolRange,		NodeInfoPatrolRange,		范围巡逻,					0);
-	AddCreateNodeFunc(NodeType::PatrolPath,			NodeInfoPatrolPath,			路径巡逻,					0);
-	AddCreateNodeFunc(NodeType::SearchTarget,		NodeInfoSearchTarget,		搜寻目标,					0);
+	RegisterNode(NodeType::HaveTarget,			NodeInfoHaveTarget,			是否有目标,					0);
+	RegisterNode(NodeType::IsUsingSkill,		NodeInfoIsUsingSkill,		是否在放技能,				0);
+
+	RegisterNode(NodeType::PatrolRange,			NodeInfoPatrolRange,		范围巡逻,					0);
+	RegisterNode(NodeType::PatrolPath,			NodeInfoPatrolPath,			路径巡逻,					0);
+	RegisterNode(NodeType::SearchTarget,		NodeInfoSearchTarget,		搜寻目标,					0);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

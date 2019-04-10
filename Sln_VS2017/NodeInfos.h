@@ -6,6 +6,9 @@
 #include "NodeInfoSequence.h"
 #include "NodeInfoParallel.h"
 
+#include "NodeInfoHaveTarget.h"
+#include "NodeInfoIsUsingSkill.h"
+
 #include "NodeInfoPatrolRange.h"
 #include "NodeInfoPatrolPath.h"
 #include "NodeInfoSearchTarget.h"

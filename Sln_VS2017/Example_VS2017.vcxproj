@@ -144,7 +144,10 @@
     <ClInclude Include="NodeGUI.h" />
     <ClInclude Include="NodeInfo.h" />
     <ClInclude Include="NodeInfoActiveSelector.h" />
+    <ClInclude Include="NodeInfoCondition.h" />
     <ClInclude Include="NodeInfoEntry.h" />
+    <ClInclude Include="NodeInfoHaveTarget.h" />
+    <ClInclude Include="NodeInfoIsUsingSkill.h" />
     <ClInclude Include="NodeInfoParallel.h" />
     <ClInclude Include="NodeInfoPatrolPath.h" />
     <ClInclude Include="NodeInfoPatrolRange.h" />
@@ -176,7 +179,10 @@
     <ClCompile Include="NodeGUI.cpp" />
     <ClCompile Include="NodeInfo.cpp" />
     <ClCompile Include="NodeInfoActiveSelector.cpp" />
+    <ClCompile Include="NodeInfoCondition.cpp" />
     <ClCompile Include="NodeInfoEntry.cpp" />
+    <ClCompile Include="NodeInfoHaveTarget.cpp" />
+    <ClCompile Include="NodeInfoIsUsingSkill.cpp" />
     <ClCompile Include="NodeInfoParallel.cpp" />
     <ClCompile Include="NodeInfoPatrolPath.cpp" />
     <ClCompile Include="NodeInfoPatrolRange.cpp" />
