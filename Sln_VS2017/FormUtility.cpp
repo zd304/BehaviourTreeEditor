@@ -19,6 +19,20 @@ namespace FormUtility
 		ImGui::NextColumn();
 	}
 
+	void FormTextMultiline(const char* label, const std::string& txt)
+	{
+		ImGui::Text(label);
+		ImGui::NextColumn();
+
+		char c[128];
+		memset(c, 0, 128);
+		sprintf_s(c, "#FMULTITXT%s", label);
+		ImGui::PushID(c);
+		ImGui::InputTextMultiline("", (char*)txt.c_str(), txt.length());
+		ImGui::PopID();
+		ImGui::NextColumn();
+	}
+
 	bool FormInt(const char* label, int* v, const char* btnName)
 	{
 		bool rst = true;

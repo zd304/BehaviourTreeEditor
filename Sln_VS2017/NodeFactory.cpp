@@ -32,6 +32,7 @@ std::map<NodeType, int> nodeChildCounts;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+DefCreateNodeFunc(NodeInfoEntry)
 // 复合节点;
 DefCreateNodeFunc(NodeInfoSelector)
 DefCreateNodeFunc(NodeInfoActiveSelector)
@@ -49,7 +50,7 @@ DefCreateNodeFunc(NodeInfoSearchTarget)
 
 void InitCreateNodeInfo()
 {
-	RegisterNode(NodeType::Entry,				NodeInfoSelector,			开始,						-1);
+	RegisterNode(NodeType::Entry,				NodeInfoEntry,				开始,						-1);
 
 	RegisterNode(NodeType::Selector,			NodeInfoSelector,			选择节点,					INT_MAX);
 	RegisterNode(NodeType::ActiveSelector,		NodeInfoActiveSelector,		主动选择节点,				INT_MAX);

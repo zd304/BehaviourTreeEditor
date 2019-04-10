@@ -9,4 +9,5 @@ public:
 
 	void OnGUI();
 	cJSON* Save(cJSON* parentArray);
+	const char* GetDescription() const;
 };

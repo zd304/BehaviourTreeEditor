@@ -3,6 +3,8 @@
 #include <map>
 #include "imgui.h"
 
+static float leftViewWidth = 320.0f;
+
 std::string UTS(const std::string& str);
 std::string STU(const std::string& str);
 void StringReplace(std::string &strBase, const std::string& strSrc, const std::string& strDes);

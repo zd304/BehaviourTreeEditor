@@ -366,7 +366,7 @@ void Application_Frame()
 
     ed::SetCurrentEditor(g_Context);
 
-	ImGui::BeginChild("##Selection", ImVec2(300.0f, 0));
+	ImGui::BeginChild("##Selection", ImVec2(leftViewWidth, 0));
 	LeftView();
 	ImGui::EndChild();
 	ImGui::SameLine();

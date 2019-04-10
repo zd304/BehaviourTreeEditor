@@ -24,6 +24,15 @@ void NodeInfo::OnGUI()
 	FormUtility::FormBegin("##NodeInfoName");
 
 	FormUtility::FormLabelText(u8"½ÚµãÃû³Æ", mName.c_str());
+	const char* desc = GetDescription();
+	if (desc)
+	{
+		ImGui::PushTextWrapPos(leftViewWidth - 12.0f);
+		ImGui::PushStyleColor(ImGuiCol_Text, 0xff99aaff);
+		FormUtility::FormLabelText(u8"ÃèÊö", desc);
+		ImGui::PopStyleColor();
+		ImGui::PopTextWrapPos();
+	}
 
 	FormUtility::FormEnd();
 
@@ -58,6 +67,11 @@ cJSON* NodeInfo::Save(cJSON* parentArray)
 void NodeInfo::Load(cJSON* self)
 {
 	mType = (NodeType)cJSON_GetObjectItem(self, "Type")->valueint;
+}
+
+const char* NodeInfo::GetDescription() const
+{
+	return NULL;
 }
 
 void NodeInfo::SaveChildren(cJSON* self)

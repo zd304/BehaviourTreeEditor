@@ -1,12 +1,15 @@
 #pragma once
 
 #include <stdlib.h>
+#include <string>
 
 namespace FormUtility
 {
 	void FormBegin(const char* spr_id, float offset = 120.0f);
 
 	void FormLabelText(const char* label, const char* text);
+
+	void FormTextMultiline(const char* label, const std::string& txt);
 
 	bool FormInt(const char* label, int* v, const char* btnName = NULL);
 

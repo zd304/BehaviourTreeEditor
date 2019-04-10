@@ -11,6 +11,7 @@ public:
 	virtual void OnGUI();
 	virtual cJSON* Save(cJSON* parentArray);
 	virtual void Load(cJSON* self);
+	virtual const char* GetDescription() const;
 protected:
 	void SaveChildren(cJSON* self);
 public:
