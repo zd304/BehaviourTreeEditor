@@ -6,6 +6,8 @@
 #include "NodeInfoSequence.h"
 #include "NodeInfoParallel.h"
 
+#include "NodeInfoRepeat.h"
+
 #include "NodeInfoHaveTarget.h"
 #include "NodeInfoIsUsingSkill.h"
 

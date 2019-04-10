@@ -97,6 +97,9 @@
     <ClInclude Include="NodeInfoIsUsingSkill.h">
       <Filter>Example\NodeInfos\Condition</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoRepeat.h">
+      <Filter>Example\NodeInfos\Decorator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -201,6 +204,9 @@
     <ClCompile Include="NodeInfoIsUsingSkill.cpp">
       <Filter>Example\NodeInfos\Condition</Filter>
     </ClCompile>
+    <ClCompile Include="NodeInfoRepeat.cpp">
+      <Filter>Example\NodeInfos\Decorator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Example">
@@ -235,6 +241,9 @@
     </Filter>
     <Filter Include="Example\NodeInfos\Common">
       <UniqueIdentifier>{0c1e5400-9e68-4c5f-b0c4-e356f76afc1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example\NodeInfos\Decorator">
+      <UniqueIdentifier>{4b050b38-f9e5-40c6-8e22-286bdaa64df6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -38,6 +38,7 @@ DefCreateNodeFunc(NodeInfoActiveSelector)
 DefCreateNodeFunc(NodeInfoSequence)
 DefCreateNodeFunc(NodeInfoParallel)
 // 修饰节点;
+DefCreateNodeFunc(NodeInfoRepeat)
 // 条件节点;
 DefCreateNodeFunc(NodeInfoHaveTarget)
 DefCreateNodeFunc(NodeInfoIsUsingSkill)
@@ -54,6 +55,8 @@ void InitCreateNodeInfo()
 	RegisterNode(NodeType::ActiveSelector,		NodeInfoActiveSelector,		主动选择节点,				INT_MAX);
 	RegisterNode(NodeType::Sequence,			NodeInfoSequence,			顺序节点,					INT_MAX);
 	RegisterNode(NodeType::Parallel,			NodeInfoParallel,			并行节点,					INT_MAX);
+
+	RegisterNode(NodeType::Repeat,				NodeInfoRepeat,				重复节点,					1);
 
 	RegisterNode(NodeType::HaveTarget,			NodeInfoHaveTarget,			是否有目标,					0);
 	RegisterNode(NodeType::IsUsingSkill,		NodeInfoIsUsingSkill,		是否在放技能,				0);
