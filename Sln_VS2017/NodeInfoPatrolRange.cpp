@@ -16,6 +16,8 @@ void NodeInfoPatrolRange::OnGUI()
 
 	FormUtility::FormBegin("##NodeInfoPatrolRange");
 	range.OnInspectorGUI(u8"巡逻范围", NULL);
+	FormUtility::FormFloat(u8"最小间隔时间", &patrolMinInterval);
+	FormUtility::FormFloat(u8"最大间隔时间", &patrolMaxInterval);
 	FormUtility::FormEnd();
 }
 

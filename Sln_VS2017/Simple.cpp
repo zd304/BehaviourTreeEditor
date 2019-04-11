@@ -742,6 +742,10 @@ EDNode* ParseToNode(cJSON* json)
 	NodeType nodeType = (NodeType)cJSON_GetObjectItem(json, "Type")->valueint;
 
 	EDNode* node = CreateNode(nodeType);
+	if (nodeType == NodeType::Entry)
+	{
+		EnterNode = node;
+	}
 
 	cJSON* pos = cJSON_GetObjectItem(json, "Pos");
 	float x = (float)cJSON_GetArrayItem(pos, 0)->valuedouble;
