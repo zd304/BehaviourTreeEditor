@@ -98,7 +98,7 @@ bool VariableFloat::OnInspectorGUI(const char* label, void* ptr)
 cJSON* VariableFloat::ToJson()
 {
 	cJSON* var = Variable::ToJson();
-	cJSON_AddNumberToObject(var, "Value", value);
+	cJSON_AddDoubleToObject(var, "Value", value);
 
 	return var;
 }
