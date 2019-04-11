@@ -36,6 +36,11 @@ void NodeInfoIsUsingSkill::OnGUI()
 	ImGui::Separator();
 }
 
+const char* NodeInfoIsUsingSkill::GetDescription() const
+{
+	return u8"角色是否在执行技能或者某个特定技能。";
+}
+
 cJSON* NodeInfoIsUsingSkill::Save(cJSON* parentArray)
 {
 	cJSON* self = NodeInfoCondition::Save(parentArray);

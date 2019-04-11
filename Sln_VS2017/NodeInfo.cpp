@@ -27,7 +27,7 @@ void NodeInfo::OnGUI()
 	const char* desc = GetDescription();
 	if (desc)
 	{
-		ImGui::PushTextWrapPos(leftViewWidth - 12.0f);
+		ImGui::PushTextWrapPos(leftViewWidth);
 		ImGui::PushStyleColor(ImGuiCol_Text, 0xff99aaff);
 		FormUtility::FormLabelText(u8"√Ë ˆ", desc);
 		ImGui::PopStyleColor();

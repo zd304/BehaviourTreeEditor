@@ -17,6 +17,11 @@ void NodeInfoSequence::OnGUI()
 	FormUtility::FormEnd();
 }
 
+const char* NodeInfoSequence::GetDescription() const
+{
+	return u8"依次执行所有节点，直到其中一个失败则失败。\n>>如果全部执行成功则成功。\n>>如果全部执行失败则失败。";
+}
+
 cJSON* NodeInfoSequence::Save(cJSON* parentArray)
 {
 	cJSON* self = NodeInfo::Save(parentArray);

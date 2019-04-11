@@ -24,6 +24,11 @@ void NodeInfoParallel::OnGUI()
 	FormUtility::FormEnd();
 }
 
+const char* NodeInfoParallel::GetDescription() const
+{
+	return u8"多个子节点行为并行执行。\n>>需要自定义成功/失败规则。";
+}
+
 cJSON* NodeInfoParallel::Save(cJSON* parentArray)
 {
 	cJSON* self = NodeInfo::Save(parentArray);
