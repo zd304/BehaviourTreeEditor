@@ -25,6 +25,8 @@ cJSON* NodeInfoPatrolRange::Save(cJSON* parentArray)
 
 	cJSON* jsonRange = range.ToJson();
 	cJSON_AddItemToObject(self, "Range", jsonRange);
+	cJSON_AddNumberToObject(self, "MinItv", patrolMinInterval);
+	cJSON_AddNumberToObject(self, "MaxItv", patrolMaxInterval);
 
 	return self;
 }
@@ -35,4 +37,6 @@ void NodeInfoPatrolRange::Load(cJSON* self)
 
 	cJSON* jsonRange = cJSON_GetObjectItem(self, "Range");
 	range.Load(jsonRange);
+	patrolMinInterval = (float)cJSON_GetObjectItem(self, "MinItv")->valuedouble;
+	patrolMaxInterval = (float)cJSON_GetObjectItem(self, "MaxItv")->valuedouble;
 }

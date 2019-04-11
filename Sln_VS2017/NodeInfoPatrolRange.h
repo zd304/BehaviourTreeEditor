@@ -13,4 +13,6 @@ public:
 	void Load(cJSON* self);
 public:
 	VariableFloat range;
+	float patrolMinInterval;
+	float patrolMaxInterval;
 };
