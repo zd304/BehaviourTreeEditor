@@ -281,8 +281,8 @@ cJSON* VariableVector2::ToJson()
 {
 	cJSON* var = Variable::ToJson();
 	cJSON* v = cJSON_CreateArray();
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[0]));
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[1]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[0]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[1]));
 	cJSON_AddItemToObject(var, "Value", v);
 
 	return var;
@@ -333,9 +333,9 @@ cJSON* VariableVector3::ToJson()
 {
 	cJSON* var = Variable::ToJson();
 	cJSON* v = cJSON_CreateArray();
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[0]));
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[1]));
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[2]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[0]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[1]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[2]));
 	cJSON_AddItemToObject(var, "Value", v);
 
 	return var;
@@ -389,10 +389,10 @@ cJSON* VariableVector4::ToJson()
 {
 	cJSON* var = Variable::ToJson();
 	cJSON* v = cJSON_CreateArray();
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[0]));
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[1]));
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[2]));
-	cJSON_AddItemToArray(v, cJSON_CreateNumber(value[3]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[0]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[1]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[2]));
+	cJSON_AddItemToArray(v, cJSON_CreateDouble(value[3]));
 	cJSON_AddItemToObject(var, "Value", v);
 
 	return var;
