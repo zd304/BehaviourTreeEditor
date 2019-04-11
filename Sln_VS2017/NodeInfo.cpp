@@ -51,8 +51,8 @@ cJSON* NodeInfo::Save(cJSON* parentArray)
 		ImVec2 vPos = ax::NodeEditor::GetNodePosition(mNode->id);
 
 		cJSON* pos = cJSON_CreateArray();
-		cJSON_AddItemToArray(pos, cJSON_CreateNumber(vPos.x));
-		cJSON_AddItemToArray(pos, cJSON_CreateNumber(vPos.y));
+		cJSON_AddItemToArray(pos, cJSON_CreateDouble(vPos.x));
+		cJSON_AddItemToArray(pos, cJSON_CreateDouble(vPos.y));
 		cJSON_AddItemToObject(node, "Pos", pos);
 	}
 
