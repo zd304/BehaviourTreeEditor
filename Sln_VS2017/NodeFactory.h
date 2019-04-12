@@ -26,6 +26,8 @@ enum NodeType
 	PatrolRange,
 	PatrolPath,
 	SearchTarget,
+	CastSkill,
+	Wait,
 };
 
 class EDNode;

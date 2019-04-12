@@ -18,6 +18,8 @@
 #include "NodeInfoPatrolRange.h"
 #include "NodeInfoPatrolPath.h"
 #include "NodeInfoSearchTarget.h"
+#include "NodeInfoCastSkill.h"
+#include "NodeInfoWait.h"
 
 class EDNode;
 

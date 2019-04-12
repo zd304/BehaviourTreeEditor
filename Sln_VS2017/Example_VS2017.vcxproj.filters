@@ -112,6 +112,15 @@
     <ClInclude Include="NodeInfoWeightRandomSelector.h">
       <Filter>Example\NodeInfos\Composite</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoWeightRandomSequence.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoCastSkill.h">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoWait.h">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -230,6 +239,15 @@
     </ClCompile>
     <ClCompile Include="NodeInfoWeightRandomSelector.cpp">
       <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoWeightRandomSequence.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoCastSkill.cpp">
+      <Filter>Example\NodeInfos\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoWait.cpp">
+      <Filter>Example\NodeInfos\Action</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

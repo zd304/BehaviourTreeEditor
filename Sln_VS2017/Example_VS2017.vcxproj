@@ -144,6 +144,7 @@
     <ClInclude Include="NodeGUI.h" />
     <ClInclude Include="NodeInfo.h" />
     <ClInclude Include="NodeInfoActiveSelector.h" />
+    <ClInclude Include="NodeInfoCastSkill.h" />
     <ClInclude Include="NodeInfoCondition.h" />
     <ClInclude Include="NodeInfoEntry.h" />
     <ClInclude Include="NodeInfoHaveTarget.h" />
@@ -159,7 +160,9 @@
     <ClInclude Include="NodeInfoSearchTarget.h" />
     <ClInclude Include="NodeInfoSelector.h" />
     <ClInclude Include="NodeInfoSequence.h" />
+    <ClInclude Include="NodeInfoWait.h" />
     <ClInclude Include="NodeInfoWeightRandomSelector.h" />
+    <ClInclude Include="NodeInfoWeightRandomSequence.h" />
     <ClInclude Include="Variables.h" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +187,7 @@
     <ClCompile Include="NodeGUI.cpp" />
     <ClCompile Include="NodeInfo.cpp" />
     <ClCompile Include="NodeInfoActiveSelector.cpp" />
+    <ClCompile Include="NodeInfoCastSkill.cpp" />
     <ClCompile Include="NodeInfoCondition.cpp" />
     <ClCompile Include="NodeInfoEntry.cpp" />
     <ClCompile Include="NodeInfoHaveTarget.cpp" />
@@ -199,7 +203,9 @@
     <ClCompile Include="NodeInfoSearchTarget.cpp" />
     <ClCompile Include="NodeInfoSelector.cpp" />
     <ClCompile Include="NodeInfoSequence.cpp" />
+    <ClCompile Include="NodeInfoWait.cpp" />
     <ClCompile Include="NodeInfoWeightRandomSelector.cpp" />
+    <ClCompile Include="NodeInfoWeightRandomSequence.cpp" />
     <ClCompile Include="Simple.cpp" />
     <ClCompile Include="Variables.cpp" />
   </ItemGroup>
