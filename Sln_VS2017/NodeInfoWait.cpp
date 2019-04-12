@@ -15,15 +15,15 @@ void NodeInfoWait::OnGUI()
 	NodeInfo::OnGUI();
 
 	FormUtility::FormBegin("##NodeInfoPatrolPath");
-	mRandomWaitTime.OnInspectorGUI(u8"是否随机等待时间", NULL);
+	mRandomWaitTime.OnInspectorGUI(u8"是否随机等待时间");
 	if (mRandomWaitTime.value)
 	{
-		mMinWaitTime.OnInspectorGUI(u8"最小等待时间", NULL);
-		mMaxWaitTime.OnInspectorGUI(u8"最大等待时间", NULL);
+		mMinWaitTime.OnInspectorGUI(u8"最小等待时间");
+		mMaxWaitTime.OnInspectorGUI(u8"最大等待时间");
 	}
 	else
 	{
-		mWaitTime.OnInspectorGUI(u8"等待时间", NULL);
+		mWaitTime.OnInspectorGUI(u8"等待时间");
 	}
 	FormUtility::FormEnd();
 }

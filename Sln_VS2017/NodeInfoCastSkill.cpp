@@ -19,12 +19,12 @@ void NodeInfoCastSkill::OnGUI()
 	FormUtility::FormCheckBox(u8"是否指定目标", &mSpecifyTarget);
 	if (mSpecifyTarget)
 	{
-		mSkillTarget.OnInspectorGUI(u8"技能目标", NULL);
+		mSkillTarget.OnInspectorGUI(u8"技能目标");
 	}
 	FormUtility::FormCheckBox(u8"是否制定目标位置", &mSpecifyTargetPos);
 	if (mSpecifyTargetPos)
 	{
-		mSkillTargetPos.OnInspectorGUI(u8"目标位置", NULL);
+		mSkillTargetPos.OnInspectorGUI(u8"目标位置");
 	}
 	FormUtility::FormEnd();
 }

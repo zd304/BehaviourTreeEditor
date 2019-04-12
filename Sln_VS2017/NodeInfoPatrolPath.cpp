@@ -17,7 +17,7 @@ void NodeInfoPatrolPath::OnGUI()
 	FormUtility::FormBegin("##NodeInfoPatrolPath");
 	const char* comboTxt = u8"单次\0乒乓\0循环";
 	FormUtility::FormCombo(u8"巡逻方式", (int*)&patrolType, comboTxt);
-	pathName.OnInspectorGUI(u8"巡逻路线名", NULL);
+	pathName.OnInspectorGUI(u8"巡逻路线名");
 	FormUtility::FormEnd();
 }
 

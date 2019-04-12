@@ -15,7 +15,7 @@ void NodeInfoRepeat::OnGUI()
 	NodeInfo::OnGUI();
 
 	FormUtility::FormBegin("##NodeInfoPatrolPath");
-	repeatTime.OnInspectorGUI(u8"重复次数", NULL);
+	repeatTime.OnInspectorGUI(u8"重复次数");
 	FormUtility::FormEnd();
 }
 

@@ -7,7 +7,7 @@ Variable::Variable(VariableType _type)
 	
 }
 
-bool Variable::OnVariableCombo(const char* label)
+bool Variable::OnVariableCombo(const char* label, bool set)
 {
 	std::string comboTxt = "";
 	std::vector<std::string> lsComboTxt;
@@ -34,7 +34,12 @@ bool Variable::OnVariableCombo(const char* label)
 		}
 	}
 	
-	if (FormUtility::FormComboButton(label, &selectIndex, comboTxt.c_str(), -1, u8"转成值"))
+	const char* btnName = u8"转成值";
+	if (set)
+	{
+		btnName = NULL;
+	}
+	if (FormUtility::FormComboButton(label, &selectIndex, comboTxt.c_str(), -1, btnName))
 	{
 		isValue = true;
 	}
@@ -79,8 +84,12 @@ bool VariableFloat::OnVariableGUI()
 	return true;
 }
 
-bool VariableFloat::OnInspectorGUI(const char* label, void* ptr)
+bool VariableFloat::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
 		if (FormUtility::FormFloat(label, &value, u8"转变量"))
@@ -90,7 +99,7 @@ bool VariableFloat::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -124,8 +133,12 @@ bool VariableInt::OnVariableGUI()
 	return true;
 }
 
-bool VariableInt::OnInspectorGUI(const char* label, void* ptr)
+bool VariableInt::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
 		if (FormUtility::FormInt(label, &value, u8"转变量"))
@@ -135,7 +148,7 @@ bool VariableInt::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -169,8 +182,12 @@ bool VariableBool::OnVariableGUI()
 	return true;
 }
 
-bool VariableBool::OnInspectorGUI(const char* label, void* ptr)
+bool VariableBool::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
 		if (FormUtility::FormBool(label, &value, u8"转变量"))
@@ -180,7 +197,7 @@ bool VariableBool::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -214,8 +231,12 @@ bool VariableString::OnVariableGUI()
 	return true;
 }
 
-bool VariableString::OnInspectorGUI(const char* label, void* ptr)
+bool VariableString::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
 		if (FormUtility::FormString(label, value, TXT_SIZE, u8"转变量"))
@@ -225,7 +246,7 @@ bool VariableString::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -252,8 +273,12 @@ VariableVector2::VariableVector2()
 	memset(value, 0, 2 * sizeof(float));
 }
 
-bool VariableVector2::OnInspectorGUI(const char* label, void* ptr)
+bool VariableVector2::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
 		if (FormUtility::FormVector2(label, value[0], value[1], u8"转变量"))
@@ -263,7 +288,7 @@ bool VariableVector2::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -313,8 +338,12 @@ bool VariableVector3::OnVariableGUI()
 	return true;
 }
 
-bool VariableVector3::OnInspectorGUI(const char* label, void* ptr)
+bool VariableVector3::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
 		if (FormUtility::FormVector3(label, value[0], value[1], value[2], u8"转变量"))
@@ -324,7 +353,7 @@ bool VariableVector3::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -368,11 +397,14 @@ bool VariableVector4::OnVariableGUI()
 	return true;
 }
 
-bool VariableVector4::OnInspectorGUI(const char* label, void* ptr)
+bool VariableVector4::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
-		ImVec4* p = (ImVec4*)ptr;
 		if (FormUtility::FormVector4(label, value[0], value[1], value[2], value[3], u8"转变量"))
 		{
 			isValue = false;
@@ -380,7 +412,7 @@ bool VariableVector4::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -427,11 +459,14 @@ bool VariableCharactor::OnVariableGUI()
 	return true;
 }
 
-bool VariableCharactor::OnInspectorGUI(const char* label, void* ptr)
+bool VariableCharactor::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
-		ImVec4* p = (ImVec4*)ptr;
 		if (FormUtility::FormInt(label, &gid, u8"转变量"))
 		{
 			isValue = false;
@@ -439,7 +474,7 @@ bool VariableCharactor::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -473,11 +508,14 @@ bool VariablePlayer::OnVariableGUI()
 	return true;
 }
 
-bool VariablePlayer::OnInspectorGUI(const char* label, void* ptr)
+bool VariablePlayer::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
-		ImVec4* p = (ImVec4*)ptr;
 		if (FormUtility::FormInt(label, &gid, u8"转变量"))
 		{
 			isValue = false;
@@ -485,7 +523,7 @@ bool VariablePlayer::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -519,11 +557,14 @@ bool VariableNpc::OnVariableGUI()
 	return true;
 }
 
-bool VariableNpc::OnInspectorGUI(const char* label, void* ptr)
+bool VariableNpc::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
-		ImVec4* p = (ImVec4*)ptr;
 		if (FormUtility::FormInt(label, &gid, u8"转变量"))
 		{
 			isValue = false;
@@ -531,7 +572,7 @@ bool VariableNpc::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -565,11 +606,14 @@ bool VariableNeutralNpc::OnVariableGUI()
 	return true;
 }
 
-bool VariableNeutralNpc::OnInspectorGUI(const char* label, void* ptr)
+bool VariableNeutralNpc::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
-		ImVec4* p = (ImVec4*)ptr;
 		if (FormUtility::FormInt(label, &gid, u8"转变量"))
 		{
 			isValue = false;
@@ -577,7 +621,7 @@ bool VariableNeutralNpc::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }
@@ -611,11 +655,14 @@ bool VariableMonster::OnVariableGUI()
 	return true;
 }
 
-bool VariableMonster::OnInspectorGUI(const char* label, void* ptr)
+bool VariableMonster::OnInspectorGUI(const char* label, bool set)
 {
+	if (set)
+	{
+		isValue = false;
+	}
 	if (isValue)
 	{
-		ImVec4* p = (ImVec4*)ptr;
 		if (FormUtility::FormInt(label, &gid, u8"转变量"))
 		{
 			isValue = false;
@@ -623,7 +670,7 @@ bool VariableMonster::OnInspectorGUI(const char* label, void* ptr)
 	}
 	else
 	{
-		OnVariableCombo(label);
+		OnVariableCombo(label, set);
 	}
 	return true;
 }

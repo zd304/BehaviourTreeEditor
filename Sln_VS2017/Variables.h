@@ -31,11 +31,11 @@ public:
 	Variable(VariableType _type);
 
 	virtual bool OnVariableGUI() = 0;
-	virtual bool OnInspectorGUI(const char* label, void* ptr) = 0;
+	virtual bool OnInspectorGUI(const char* label, bool set = false) = 0;
 	virtual cJSON* ToJson();
 	virtual void Load(cJSON* json);
 protected:
-	bool OnVariableCombo(const char* label);
+	bool OnVariableCombo(const char* label, bool set);
 public:
 	std::string name;
 	VariableType type;
@@ -50,7 +50,7 @@ public:
 	VariableFloat();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -63,7 +63,7 @@ public:
 	VariableInt();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -76,7 +76,7 @@ public:
 	VariableBool();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -89,7 +89,7 @@ public:
 	VariableString();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -103,7 +103,7 @@ public:
 	VariableVector2();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -116,7 +116,7 @@ public:
 	VariableVector3();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -129,7 +129,7 @@ public:
 	VariableVector4();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -142,7 +142,7 @@ public:
 	VariableCharactor();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -155,7 +155,7 @@ public:
 	VariablePlayer();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -168,7 +168,7 @@ public:
 	VariableNpc();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -181,7 +181,7 @@ public:
 	VariableNeutralNpc();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:
@@ -194,7 +194,7 @@ public:
 	VariableMonster();
 
 	bool OnVariableGUI();
-	bool OnInspectorGUI(const char* label, void* ptr);
+	bool OnInspectorGUI(const char* label, bool set = false);
 	cJSON* ToJson();
 	void Load(cJSON* json);
 public:

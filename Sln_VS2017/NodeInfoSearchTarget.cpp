@@ -20,7 +20,7 @@ void NodeInfoSearchTarget::OnGUI()
 	FormUtility::FormBegin("##NodeInfoSearchTarget");
 	FormUtility::FormCombo(u8"ËÑÑ°ÀàÐÍ", (int*)&mSearchTargetType, searchTargetType);
 	FormUtility::FormCombo(u8"ËÑÑ°Ìõ¼þ", (int*)&mSearchTargetCondition, searchTargetCondition);
-	mSearchDist.OnInspectorGUI(u8"ËÑÑ°·¶Î§", NULL);
+	mSearchDist.OnInspectorGUI(u8"ËÑÑ°·¶Î§");
 	FormUtility::FormEnd();
 }
 
