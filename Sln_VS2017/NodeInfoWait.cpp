@@ -5,8 +5,7 @@
 namespace ed = ax::NodeEditor;
 
 NodeInfoWait::NodeInfoWait()
-	: NodeInfo(NodeType::Wait), mWaitTime(0.0f), mRandomWaitTime(false),
-	mMaxWaitTime(0.0f), mMinWaitTime(0.0f)
+	: NodeInfo(NodeType::Wait)
 {
 
 }
@@ -16,15 +15,15 @@ void NodeInfoWait::OnGUI()
 	NodeInfo::OnGUI();
 
 	FormUtility::FormBegin("##NodeInfoPatrolPath");
-	FormUtility::FormCheckBox(u8"是否随机等待时间", &mRandomWaitTime);
-	if (mRandomWaitTime)
+	mRandomWaitTime.OnInspectorGUI(u8"是否随机等待时间", NULL);
+	if (mRandomWaitTime.value)
 	{
-		FormUtility::FormFloat(u8"最小等待时间", &mMinWaitTime);
-		FormUtility::FormFloat(u8"最大等待时间", &mMaxWaitTime);
+		mMinWaitTime.OnInspectorGUI(u8"最小等待时间", NULL);
+		mMaxWaitTime.OnInspectorGUI(u8"最大等待时间", NULL);
 	}
 	else
 	{
-		FormUtility::FormFloat(u8"等待时间", &mWaitTime);
+		mWaitTime.OnInspectorGUI(u8"等待时间", NULL);
 	}
 	FormUtility::FormEnd();
 }
@@ -33,15 +32,15 @@ cJSON* NodeInfoWait::Save(cJSON* parentArray)
 {
 	cJSON* self = NodeInfo::Save(parentArray);
 
-	cJSON_AddBoolToObject(self, "Random", mRandomWaitTime);
-	if (mRandomWaitTime)
+	cJSON_AddItemToObject(self, "Random", mRandomWaitTime.ToJson());
+	if (mRandomWaitTime.value)
 	{
-		cJSON_AddDoubleToObject(self, "Min", mMinWaitTime);
-		cJSON_AddDoubleToObject(self, "Max", mMaxWaitTime);
+		cJSON_AddItemToObject(self, "Min", mMinWaitTime.ToJson());
+		cJSON_AddItemToObject(self, "Max", mMaxWaitTime.ToJson());
 	}
 	else
 	{
-		cJSON_AddDoubleToObject(self, "Time", mWaitTime);
+		cJSON_AddItemToObject(self, "Time", mWaitTime.ToJson());
 	}
 
 	return self;
@@ -51,14 +50,14 @@ void NodeInfoWait::Load(cJSON* self)
 {
 	NodeInfo::Load(self);
 
-	mRandomWaitTime = (bool)cJSON_GetObjectItem(self, "Random")->valueint;
-	if (mRandomWaitTime)
+	mRandomWaitTime.Load(cJSON_GetObjectItem(self, "Random"));
+	if (mRandomWaitTime.value)
 	{
-		mMinWaitTime = (float)cJSON_GetObjectItem(self, "Min")->valuedouble;
-		mMaxWaitTime = (float)cJSON_GetObjectItem(self, "Max")->valuedouble;
+		mMinWaitTime.Load(cJSON_GetObjectItem(self, "Min"));
+		mMaxWaitTime.Load(cJSON_GetObjectItem(self, "Max"));
 	}
 	else
 	{
-		mWaitTime = (float)cJSON_GetObjectItem(self, "Time")->valuedouble;
+		mWaitTime.Load(cJSON_GetObjectItem(self, "Time"));
 	}
 }

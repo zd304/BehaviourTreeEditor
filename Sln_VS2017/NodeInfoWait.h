@@ -12,8 +12,8 @@ public:
 	cJSON* Save(cJSON* parentArray);
 	void Load(cJSON* self);
 public:
-	float mWaitTime;
-	bool mRandomWaitTime;
-	float mMinWaitTime;
-	float mMaxWaitTime;
+	VariableFloat mWaitTime;
+	VariableBool mRandomWaitTime;
+	VariableFloat mMinWaitTime;
+	VariableFloat mMaxWaitTime;
 };

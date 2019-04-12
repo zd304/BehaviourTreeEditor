@@ -50,7 +50,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNINT%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -74,7 +77,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNFLOAT%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -98,7 +104,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNBOOL%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -122,7 +131,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNSTR%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -151,7 +163,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNV2%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -181,7 +196,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNV3%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -212,7 +230,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNV4%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
@@ -236,7 +257,10 @@ namespace FormUtility
 		if (btnName != NULL)
 		{
 			ImGui::SameLine();
+			sprintf_s(c, "#FBTNCOM%s", label);
+			ImGui::PushID(c);
 			rst = ImGui::Button(btnName);
+			ImGui::PopID();
 		}
 		ImGui::NextColumn();
 
