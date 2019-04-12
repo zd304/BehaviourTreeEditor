@@ -8,6 +8,7 @@
 #include "NodeInfoRandomSelector.h"
 #include "NodeInfoRandomSequence.h"
 #include "NodeInfoWeightRandomSelector.h"
+#include "NodeInfoWeightRandomSequence.h"
 
 #include "NodeInfoRepeat.h"
 
