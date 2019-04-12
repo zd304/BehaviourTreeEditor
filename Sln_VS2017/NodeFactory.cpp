@@ -38,6 +38,9 @@ DefCreateNodeFunc(NodeInfoSelector)
 DefCreateNodeFunc(NodeInfoActiveSelector)
 DefCreateNodeFunc(NodeInfoSequence)
 DefCreateNodeFunc(NodeInfoParallel)
+DefCreateNodeFunc(NodeInfoRandomSelector)
+DefCreateNodeFunc(NodeInfoRandomSequence)
+DefCreateNodeFunc(NodeInfoWeightRandomSelector)
 // 修饰节点;
 DefCreateNodeFunc(NodeInfoRepeat)
 // 条件节点;
@@ -56,6 +59,9 @@ void InitCreateNodeInfo()
 	RegisterNode(NodeType::ActiveSelector,		NodeInfoActiveSelector,		主动选择节点,				INT_MAX);
 	RegisterNode(NodeType::Sequence,			NodeInfoSequence,			顺序节点,					INT_MAX);
 	RegisterNode(NodeType::Parallel,			NodeInfoParallel,			并行节点,					INT_MAX);
+	RegisterNode(NodeType::RandomSelector,		NodeInfoRandomSelector,		随机选择节点,				INT_MAX);
+	RegisterNode(NodeType::RandomSequence,		NodeInfoRandomSequence,		随机顺序节点,				INT_MAX);
+	RegisterNode(NodeType::WeightRandomSelector, NodeInfoWeightRandomSelector, 权重选择节点,			INT_MAX);
 
 	RegisterNode(NodeType::Repeat,				NodeInfoRepeat,				重复节点,					1);
 

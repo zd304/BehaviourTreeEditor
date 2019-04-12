@@ -100,6 +100,18 @@
     <ClInclude Include="NodeInfoRepeat.h">
       <Filter>Example\NodeInfos\Decorator</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoRandomSelector.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoRandom.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoRandomSequence.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoWeightRandomSelector.h">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -206,6 +218,18 @@
     </ClCompile>
     <ClCompile Include="NodeInfoRepeat.cpp">
       <Filter>Example\NodeInfos\Decorator</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoRandomSelector.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoRandom.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoRandomSequence.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoWeightRandomSelector.cpp">
+      <Filter>Example\NodeInfos\Composite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

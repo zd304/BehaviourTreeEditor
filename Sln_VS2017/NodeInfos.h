@@ -5,6 +5,9 @@
 #include "NodeInfoActiveSelector.h"
 #include "NodeInfoSequence.h"
 #include "NodeInfoParallel.h"
+#include "NodeInfoRandomSelector.h"
+#include "NodeInfoRandomSequence.h"
+#include "NodeInfoWeightRandomSelector.h"
 
 #include "NodeInfoRepeat.h"
 

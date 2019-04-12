@@ -151,11 +151,15 @@
     <ClInclude Include="NodeInfoParallel.h" />
     <ClInclude Include="NodeInfoPatrolPath.h" />
     <ClInclude Include="NodeInfoPatrolRange.h" />
+    <ClInclude Include="NodeInfoRandom.h" />
+    <ClInclude Include="NodeInfoRandomSelector.h" />
+    <ClInclude Include="NodeInfoRandomSequence.h" />
     <ClInclude Include="NodeInfoRepeat.h" />
     <ClInclude Include="NodeInfos.h" />
     <ClInclude Include="NodeInfoSearchTarget.h" />
     <ClInclude Include="NodeInfoSelector.h" />
     <ClInclude Include="NodeInfoSequence.h" />
+    <ClInclude Include="NodeInfoWeightRandomSelector.h" />
     <ClInclude Include="Variables.h" />
   </ItemGroup>
   <ItemGroup>
@@ -187,11 +191,15 @@
     <ClCompile Include="NodeInfoParallel.cpp" />
     <ClCompile Include="NodeInfoPatrolPath.cpp" />
     <ClCompile Include="NodeInfoPatrolRange.cpp" />
+    <ClCompile Include="NodeInfoRandom.cpp" />
+    <ClCompile Include="NodeInfoRandomSelector.cpp" />
+    <ClCompile Include="NodeInfoRandomSequence.cpp" />
     <ClCompile Include="NodeInfoRepeat.cpp" />
     <ClCompile Include="NodeInfos.cpp" />
     <ClCompile Include="NodeInfoSearchTarget.cpp" />
     <ClCompile Include="NodeInfoSelector.cpp" />
     <ClCompile Include="NodeInfoSequence.cpp" />
+    <ClCompile Include="NodeInfoWeightRandomSelector.cpp" />
     <ClCompile Include="Simple.cpp" />
     <ClCompile Include="Variables.cpp" />
   </ItemGroup>

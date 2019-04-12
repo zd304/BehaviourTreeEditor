@@ -1,5 +1,6 @@
 #include "EDNode.h"
 #include "NodeInfo.h"
+#include <algorithm>
 
 EDNode::EDNode(int nodeID, const char* szName)
 	: id(nodeID), name(szName), curOutput(0), maxOutput(INT_MAX), nodeInfo(NULL)
@@ -35,6 +36,16 @@ EDNode::~EDNode()
 	SAFE_DELETE(nodeInfo);
 }
 
+bool CompEDNode(const EDNode* node1, const EDNode* node2)
+{
+	ImVec2 pos1 = ax::NodeEditor::GetNodePosition(node1->id);
+	ImVec2 pos2 = ax::NodeEditor::GetNodePosition(node2->id);
+
+	if (pos1.x < pos2.x)
+		return true;
+	return false;
+}
+
 void ResetNodeTreePos(EDNode* node, float diffHeight)
 {
 	std::vector<EDNode*> q;
@@ -54,6 +65,7 @@ void ResetNodeTreePos(EDNode* node, float diffHeight)
 		}
 
 		q.erase(begin);
+		std::sort(t->children.begin(), t->children.end(), CompEDNode);
 
 		for (size_t i = 0; i < t->children.size(); ++i)
 		{
