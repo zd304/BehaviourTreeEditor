@@ -28,6 +28,7 @@ enum NodeType
 	SearchTarget,
 	CastSkill,
 	Wait,
+	SavePosition,
 };
 
 class EDNode;

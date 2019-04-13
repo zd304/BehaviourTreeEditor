@@ -20,6 +20,7 @@
 #include "NodeInfoSearchTarget.h"
 #include "NodeInfoCastSkill.h"
 #include "NodeInfoWait.h"
+#include "NodeInfoSavePosition.h"
 
 class EDNode;
 

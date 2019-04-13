@@ -406,6 +406,7 @@ void Application_Frame()
 		ImRect inputsRect;
 		ImRect outputsRect;
 		ImRect contentRect;
+		ImRect noteRect;
 		int inputAlpha = 200;
 		int outputAlpha = 200;
 		// 画Node;
@@ -452,6 +453,23 @@ void Application_Frame()
 
 				ImGui::Spring(1, padding);
 				ImGui::EndHorizontal();
+			}
+			// 画注释;
+			if (node->nodeInfo && node->nodeInfo->mNote != "")
+			{
+				ImGui::PushStyleColor(ImGuiCol_Text, 0xffaaaaaa);
+				ImGui::BeginHorizontal("note_frame");
+				ImGui::Spring(1, padding);
+				ImGui::BeginVertical("note", ImVec2(0.0f, 0.0f));
+				ImGui::Dummy(ImVec2(160, 0));
+				ImGui::Spring(1);
+				ImGui::TextUnformatted(node->nodeInfo->mNote.c_str());
+				ImGui::Spring(1);
+				ImGui::EndVertical();
+				noteRect = ImGui_GetItemRect();
+				ImGui::Spring(1, padding);
+				ImGui::EndHorizontal();
+				ImGui::PopStyleColor();
 			}
 
 			// 画Output;
@@ -507,6 +525,11 @@ void Application_Frame()
 			contentRect.GetTL(),
 			contentRect.GetBR(),
 			IM_COL32(48, 128, 255, 100), 0.0f);
+
+		if (node->nodeInfo && node->nodeInfo->mNote != "")
+		{
+			drawList->AddRect(noteRect.GetTL(), noteRect.GetBR(), IM_COL32(255, 255, 255, 200), 0.0f);
+		}
 		//ImGui::PopStyleVar();
 	}
 

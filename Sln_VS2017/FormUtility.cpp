@@ -19,7 +19,7 @@ namespace FormUtility
 		ImGui::NextColumn();
 	}
 
-	void FormTextMultiline(const char* label, const std::string& txt)
+	void FormTextMultiline(const char* label, char* buf, size_t bufSize, ImVec2 size)
 	{
 		ImGui::Text(label);
 		ImGui::NextColumn();
@@ -27,8 +27,9 @@ namespace FormUtility
 		char c[128];
 		memset(c, 0, 128);
 		sprintf_s(c, "#FMULTITXT%s", label);
+
 		ImGui::PushID(c);
-		ImGui::InputTextMultiline("", (char*)txt.c_str(), txt.length());
+		ImGui::InputTextMultiline("", buf, bufSize, size);
 		ImGui::PopID();
 		ImGui::NextColumn();
 	}

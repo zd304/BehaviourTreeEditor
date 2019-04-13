@@ -53,6 +53,7 @@ DefCreateNodeFunc(NodeInfoPatrolPath)
 DefCreateNodeFunc(NodeInfoSearchTarget)
 DefCreateNodeFunc(NodeInfoCastSkill)
 DefCreateNodeFunc(NodeInfoWait)
+DefCreateNodeFunc(NodeInfoSavePosition)
 
 void InitCreateNodeInfo()
 {
@@ -77,6 +78,7 @@ void InitCreateNodeInfo()
 	RegisterNode(NodeType::SearchTarget,		NodeInfoSearchTarget,		搜寻目标,					0);
 	RegisterNode(NodeType::CastSkill,			NodeInfoCastSkill,			施放技能,					0);
 	RegisterNode(NodeType::Wait,				NodeInfoWait,				等待,						0);
+	RegisterNode(NodeType::SavePosition,		NodeInfoSavePosition,		保存位置,					0);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

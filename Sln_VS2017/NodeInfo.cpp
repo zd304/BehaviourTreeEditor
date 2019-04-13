@@ -4,7 +4,7 @@
 #include "EDNode.h"
 
 NodeInfo::NodeInfo(NodeType type, const char* name)
-	: mType(type)
+	: mType(type), mNote("")
 {
 	if (name == NULL)
 	{
@@ -34,6 +34,12 @@ void NodeInfo::OnGUI()
 		ImGui::PopTextWrapPos();
 	}
 
+	char note[256];
+	memset(note, 0, 256);
+	memcpy(note, mNote.c_str(), 256);
+	FormUtility::FormTextMultiline(u8"×¢ÊÍ", note, 256, ImVec2(160.0f, 50.0f));
+	mNote = note;
+
 	FormUtility::FormEnd();
 
 	ImGui::Spacing();
@@ -54,6 +60,7 @@ cJSON* NodeInfo::Save(cJSON* parentArray)
 		cJSON_AddItemToArray(pos, cJSON_CreateDouble(vPos.x));
 		cJSON_AddItemToArray(pos, cJSON_CreateDouble(vPos.y));
 		cJSON_AddItemToObject(node, "Pos", pos);
+		cJSON_AddStringToObject(node, "Note", mNote.c_str());
 	}
 
 	if (parentArray)
@@ -67,6 +74,7 @@ cJSON* NodeInfo::Save(cJSON* parentArray)
 void NodeInfo::Load(cJSON* self)
 {
 	mType = (NodeType)cJSON_GetObjectItem(self, "Type")->valueint;
+	mNote = cJSON_GetObjectItem(self, "Note")->valuestring;
 }
 
 const char* NodeInfo::GetDescription() const

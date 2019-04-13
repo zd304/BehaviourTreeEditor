@@ -17,5 +17,6 @@ protected:
 public:
 	NodeType mType;
 	std::string mName;
+	std::string mNote;
 	EDNode* mNode;
 };

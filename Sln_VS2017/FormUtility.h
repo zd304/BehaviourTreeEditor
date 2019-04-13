@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <string>
+#include "imgui.h"
 
 namespace FormUtility
 {
@@ -9,7 +10,7 @@ namespace FormUtility
 
 	void FormLabelText(const char* label, const char* text);
 
-	void FormTextMultiline(const char* label, const std::string& txt);
+	void FormTextMultiline(const char* label, char* buf, size_t bufSize, ImVec2 size = ImVec2(0.0f, 0.0f));
 
 	bool FormInt(const char* label, int* v, const char* btnName = NULL);
 
