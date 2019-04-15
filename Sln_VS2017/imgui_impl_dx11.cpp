@@ -32,6 +32,7 @@
 #include <algorithm>
 #include <memory>
 #include <cstdint>
+#include "Application.h"
 
 #include <cmath> // powf
 
@@ -374,10 +375,25 @@ IMGUI_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hwnd, UINT msg, WPARAM wPa
             io.KeysDown[wParam] = 0;
         return 0;
     case WM_CHAR:
-        // You can also use ToAscii()+GetKeyboardState() to retrieve characters.
-        if (wParam > 0 && wParam < 0x10000)
-            io.AddInputCharacter((unsigned short)wParam);
-        return 0;
+		if (wParam > 0 && wParam < 0x10000)
+		{
+			io.AddInputCharacter((unsigned short)wParam);
+		}
+        return true;
+	case WM_IME_CHAR:
+	{
+		char cc[3];
+		memset(cc, 0, 3);
+		memcpy(cc, &wParam, sizeof(unsigned short));
+		char temp = cc[0];
+		cc[0] = cc[1];
+		cc[1] = temp;
+
+		std::string s = STU(cc);
+
+		io.AddInputCharactersUTF8(s.c_str());
+	}
+	return true;
     case WM_SETCURSOR:
         if (LOWORD(lParam) == HTCLIENT && ImGui_ImplWin32_UpdateMouseCursor())
             return 1;

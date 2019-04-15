@@ -14,6 +14,7 @@ void NodeInfoSequence::OnGUI()
 	NodeInfo::OnGUI();
 
 	FormUtility::FormBegin("##NodeInfoSequence");
+	FormUtility::FormCheckBox(u8"Ñ­»·Ë³ÐòÖ´ÐÐ", &loop);
 	FormUtility::FormEnd();
 }
 
@@ -26,7 +27,20 @@ cJSON* NodeInfoSequence::Save(cJSON* parentArray)
 {
 	cJSON* self = NodeInfo::Save(parentArray);
 
+	cJSON_AddBoolToObject(self, "Loop", loop);
+
 	SaveChildren(self);
 
 	return self;
+}
+
+void NodeInfoSequence::Load(cJSON* self)
+{
+	NodeInfo::Load(self);
+
+	cJSON* item = cJSON_GetObjectItem(self, "Loop");
+	if (item)
+	{
+		loop = (bool)item->valueint;
+	}
 }

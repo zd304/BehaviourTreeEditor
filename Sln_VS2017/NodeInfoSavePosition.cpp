@@ -24,7 +24,7 @@ cJSON* NodeInfoSavePosition::Save(cJSON* parentArray)
 	cJSON* self = NodeInfo::Save(parentArray);
 
 	cJSON* jsonPosition = position.ToJson();
-	cJSON_AddItemToObject(self, "Pos", jsonPosition);
+	cJSON_AddItemToObject(self, "SPos", jsonPosition);
 
 	return self;
 }
@@ -33,6 +33,6 @@ void NodeInfoSavePosition::Load(cJSON* self)
 {
 	NodeInfo::Load(self);
 
-	cJSON* jsonPosition = cJSON_GetObjectItem(self, "Pos");
+	cJSON* jsonPosition = cJSON_GetObjectItem(self, "SPos");
 	position.Load(jsonPosition);
 }
