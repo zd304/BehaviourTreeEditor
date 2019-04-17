@@ -14,7 +14,7 @@ public:
 public:
 	int mSkillID;
 	bool mSpecifyTarget;
-	VariableCharactor mSkillTarget;
+	VariableCharacter mSkillTarget;
 	bool mSpecifyTargetPos;
 	VariableVector3 mSkillTargetPos;
 };

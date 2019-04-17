@@ -47,6 +47,11 @@ DefCreateNodeFunc(NodeInfoRepeat)
 // 条件节点;
 DefCreateNodeFunc(NodeInfoHaveTarget)
 DefCreateNodeFunc(NodeInfoIsUsingSkill)
+DefCreateNodeFunc(NodeInfoBoolCompare)
+DefCreateNodeFunc(NodeInfoIntCompare)
+DefCreateNodeFunc(NodeInfoFloatCompare)
+DefCreateNodeFunc(NodeInfoStringCompare)
+DefCreateNodeFunc(NodeInfoCharacterCompare)
 // 行为节点;
 DefCreateNodeFunc(NodeInfoPatrolRange)
 DefCreateNodeFunc(NodeInfoPatrolPath)
@@ -72,6 +77,11 @@ void InitCreateNodeInfo()
 
 	RegisterNode(NodeType::HaveTarget,			NodeInfoHaveTarget,			是否有目标,					0);
 	RegisterNode(NodeType::IsUsingSkill,		NodeInfoIsUsingSkill,		是否在放技能,				0);
+	RegisterNode(NodeType::BoolCompare,			NodeInfoBoolCompare,		布尔对比,					0);
+	RegisterNode(NodeType::IntCompare,			NodeInfoIntCompare,			整数对比,					0);
+	RegisterNode(NodeType::FloatCompare,		NodeInfoFloatCompare,		浮点数对比,					0);
+	RegisterNode(NodeType::StringCompare,		NodeInfoStringCompare,		文字对比,					0);
+	RegisterNode(NodeType::CharacterCompare,	NodeInfoCharacterCompare,	角色对比,					0);
 
 	RegisterNode(NodeType::PatrolRange,			NodeInfoPatrolRange,		范围巡逻,					0);
 	RegisterNode(NodeType::PatrolPath,			NodeInfoPatrolPath,			路径巡逻,					0);

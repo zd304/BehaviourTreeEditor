@@ -14,6 +14,11 @@
 
 #include "NodeInfoHaveTarget.h"
 #include "NodeInfoIsUsingSkill.h"
+#include "NodeInfoBoolCompare.h"
+#include "NodeInfoIntCompare.h"
+#include "NodeInfoFloatCompare.h"
+#include "NodeInfoStringCompare.h"
+#include "NodeInfoCharacterCompare.h"
 
 #include "NodeInfoPatrolRange.h"
 #include "NodeInfoPatrolPath.h"

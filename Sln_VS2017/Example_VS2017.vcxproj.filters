@@ -124,6 +124,24 @@
     <ClInclude Include="NodeInfoSavePosition.h">
       <Filter>Example\NodeInfos\Action</Filter>
     </ClInclude>
+    <ClInclude Include="NodeInfoCompare.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoBoolCompare.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoIntCompare.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoFloatCompare.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoStringCompare.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeInfoCharacterCompare.h">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entry.cpp">
@@ -254,6 +272,24 @@
     </ClCompile>
     <ClCompile Include="NodeInfoSavePosition.cpp">
       <Filter>Example\NodeInfos\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoCompare.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoBoolCompare.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoIntCompare.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoFloatCompare.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoStringCompare.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeInfoCharacterCompare.cpp">
+      <Filter>Example\NodeInfos\Condition</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

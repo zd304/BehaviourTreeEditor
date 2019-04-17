@@ -144,10 +144,15 @@
     <ClInclude Include="NodeGUI.h" />
     <ClInclude Include="NodeInfo.h" />
     <ClInclude Include="NodeInfoActiveSelector.h" />
+    <ClInclude Include="NodeInfoBoolCompare.h" />
+    <ClInclude Include="NodeInfoCharacterCompare.h" />
+    <ClInclude Include="NodeInfoCompare.h" />
     <ClInclude Include="NodeInfoCastSkill.h" />
     <ClInclude Include="NodeInfoCondition.h" />
     <ClInclude Include="NodeInfoEntry.h" />
+    <ClInclude Include="NodeInfoFloatCompare.h" />
     <ClInclude Include="NodeInfoHaveTarget.h" />
+    <ClInclude Include="NodeInfoIntCompare.h" />
     <ClInclude Include="NodeInfoIsUsingSkill.h" />
     <ClInclude Include="NodeInfoParallel.h" />
     <ClInclude Include="NodeInfoPatrolPath.h" />
@@ -161,6 +166,7 @@
     <ClInclude Include="NodeInfoSearchTarget.h" />
     <ClInclude Include="NodeInfoSelector.h" />
     <ClInclude Include="NodeInfoSequence.h" />
+    <ClInclude Include="NodeInfoStringCompare.h" />
     <ClInclude Include="NodeInfoWait.h" />
     <ClInclude Include="NodeInfoWeightRandomSelector.h" />
     <ClInclude Include="NodeInfoWeightRandomSequence.h" />
@@ -188,10 +194,15 @@
     <ClCompile Include="NodeGUI.cpp" />
     <ClCompile Include="NodeInfo.cpp" />
     <ClCompile Include="NodeInfoActiveSelector.cpp" />
+    <ClCompile Include="NodeInfoBoolCompare.cpp" />
+    <ClCompile Include="NodeInfoCharacterCompare.cpp" />
+    <ClCompile Include="NodeInfoCompare.cpp" />
     <ClCompile Include="NodeInfoCastSkill.cpp" />
     <ClCompile Include="NodeInfoCondition.cpp" />
     <ClCompile Include="NodeInfoEntry.cpp" />
+    <ClCompile Include="NodeInfoFloatCompare.cpp" />
     <ClCompile Include="NodeInfoHaveTarget.cpp" />
+    <ClCompile Include="NodeInfoIntCompare.cpp" />
     <ClCompile Include="NodeInfoIsUsingSkill.cpp" />
     <ClCompile Include="NodeInfoParallel.cpp" />
     <ClCompile Include="NodeInfoPatrolPath.cpp" />
@@ -205,6 +216,7 @@
     <ClCompile Include="NodeInfoSearchTarget.cpp" />
     <ClCompile Include="NodeInfoSelector.cpp" />
     <ClCompile Include="NodeInfoSequence.cpp" />
+    <ClCompile Include="NodeInfoStringCompare.cpp" />
     <ClCompile Include="NodeInfoWait.cpp" />
     <ClCompile Include="NodeInfoWeightRandomSelector.cpp" />
     <ClCompile Include="NodeInfoWeightRandomSequence.cpp" />

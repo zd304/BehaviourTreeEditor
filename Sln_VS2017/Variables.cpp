@@ -444,12 +444,12 @@ void VariableVector4::Load(cJSON* json)
 	value[3] = w;
 }
 
-VariableCharactor::VariableCharactor()
+VariableCharacter::VariableCharacter()
 	: Variable(VariableType::Charactor)
 {
 }
 
-bool VariableCharactor::OnVariableGUI()
+bool VariableCharacter::OnVariableGUI()
 {
 	gid = 0;
 	if (FormUtility::FormInt(name.c_str(), &gid, u8"É¾³ý"))
@@ -459,7 +459,7 @@ bool VariableCharactor::OnVariableGUI()
 	return true;
 }
 
-bool VariableCharactor::OnInspectorGUI(const char* label, bool set)
+bool VariableCharacter::OnInspectorGUI(const char* label, bool set)
 {
 	if (set)
 	{
@@ -479,7 +479,7 @@ bool VariableCharactor::OnInspectorGUI(const char* label, bool set)
 	return true;
 }
 
-cJSON* VariableCharactor::ToJson()
+cJSON* VariableCharacter::ToJson()
 {
 	cJSON* var = Variable::ToJson();
 	cJSON_AddNumberToObject(var, "Value", gid);
@@ -487,7 +487,7 @@ cJSON* VariableCharactor::ToJson()
 	return var;
 }
 
-void VariableCharactor::Load(cJSON* json)
+void VariableCharacter::Load(cJSON* json)
 {
 	Variable::Load(json);
 	gid = cJSON_GetObjectItem(json, "Value")->valueint;

@@ -21,6 +21,11 @@ enum NodeType
 
 	HaveTarget = 1001,
 	IsUsingSkill,
+	BoolCompare,
+	IntCompare,
+	FloatCompare,
+	StringCompare,
+	CharacterCompare,
 
 	MoveTo = 2001,
 	PatrolRange,

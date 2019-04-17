@@ -136,10 +136,10 @@ public:
 	float value[4];
 };
 
-class VariableCharactor : public Variable
+class VariableCharacter : public Variable
 {
 public:
-	VariableCharactor();
+	VariableCharacter();
 
 	bool OnVariableGUI();
 	bool OnInspectorGUI(const char* label, bool set = false);

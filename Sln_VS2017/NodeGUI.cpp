@@ -66,7 +66,7 @@ Variable* CreateVariable(VariableType varType)
 	break;
 	case VariableType::Charactor:
 	{
-		var = new VariableCharactor();
+		var = new VariableCharacter();
 	}
 	break;
 	case VariableType::Npc:
